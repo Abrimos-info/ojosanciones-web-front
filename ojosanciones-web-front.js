@@ -18,7 +18,7 @@ const views = require("./lib/views");
 
 
 const host = 'localhost';
-const port = 8008 || process.env.GOBERNANTES_PORT;
+const port = 8009 || process.env.OJOSANCIONES_PORT;
 
 
 const log = ""
