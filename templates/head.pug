@@ -1,0 +1,48 @@
+mixin head(title)
+    doctype html
+    html(lang="es")
+        head
+            meta(charset="UTF-8")
+            meta(name="viewport", content="width=device-width, initial-scale=1.0")
+            link(rel="stylesheet", href="/static/css/main.css")
+            link(rel="shortcut icon", href="/static/img/favicon-96.png", type="image/x-icon")
+            title #{title}
+
+            script(async,src="https://www.googletagmanager.com/gtag/js?id=G-")
+            script
+                | window.dataLayer = window.dataLayer || [];
+                | function gtag(){dataLayer.push(arguments);}
+                | gtag('js', new Date());
+
+                | gtag('config', 'G-');
+
+        body
+            div.header
+                a(href="/")
+                    img(src="/static/img/ojosanciones-logo.png", alt="Ojo a las sanciones - sociedad.info").logo
+                div.menu#mainMenu
+                    a.headerButton(href="/#buscador1") Inicio
+                    a.headerButton(href="/#buscador1") Búsqueda
+                    a.headerButton(href="/#buscador1") Visualizaciones
+                    a.headerButton(href="/#buscador1") Acerca de
+            div.banner
+                div.icon
+                    img(src="/static/img/warning.png", width="40")
+                div.text
+                    p IMPORTANTE: Esta es una en proceso de desarollo para Ojo a las sanciones
+
+mixin footer()
+    div.contact
+        p Contacto:&nbsp;
+            a(href="mailto:hola@abrimos.info") hola@abrimos.info
+    div.footer
+        div.footersocial
+            a(href="https://twitter.com/abrimosinfo", target="_blank")
+                img(src="/static/img/twitter.png").twitter
+        div.footertext
+            p Ojo a las sanciones es un proyecto de +Integridad y
+                a(href="https://www.abrimos.info") &nbsp;abrimos info
+                |  que mejora el acceso a la información pública mediante la innovación tecnológica.
+        div.footerlogo
+            a(href="https://abrimos.info/")
+                img(src="/static/img/logo_abrimos.png" height="75")

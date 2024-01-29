@@ -1,0 +1,73 @@
+include head.pug
+
+mixin field(id,title,value)
+    if value
+        tr.field
+            td.fieldTitle #{title}:
+            td.fieldValue !{value}
+
++head("Sociedad.info - Candidato ")
+//- +buyer.key)
+div.wrapper
+    p !{jp(item)}
+    //- h1 Entidad compradora #{buyer.key}
+    //- div.buyer
+    //-     table
+    //-         +field("contract_amount","Importe total contratado (Q.)",buyer.contract_amount.value)
+    //-         +field("tipo_entidad", "Tipo entidad", buyer.tipo_entidad.buckets[0].key)
+    //-         +field("tipo_entidad_padre", "Tipo entidad padre", buyer.tipo_entidad_padre.buckets[0].key)
+
+    //-     hr
+    //-     h2 Unidades compradoras
+    //-     each uc in buyer.unidad_compradora.buckets
+    //-         p
+    //-             a(href="/buscador?type=contract&uc="+uc.key) #{uc.key}
+
+//- "date_birth":"1988-03-19",
+//- "dead_or_alive":false,
+//- "dni":"33664315",
+//- "fb_urls":[],
+//- "first_name":"en_US":"ROMINA PAOLA",
+//- "full_name": "en_US":"ROMINA PAOLA LUKASZUK",
+//- "gender":"F",
+//- "ig_urls":[],
+//- "last_name": "en_US":"LUKASZUK",
+//- "other_names":{"ballot_name":[ {"en_US":"POR LA GENTE- LETRA P"
+//- "nickname":[], //check
+//- "preferred_name":[] //check
+//- "photo_urls":[],
+//- "professions":[],
+//- "social_network_accounts":[],
+//- "websites":[],
+//- "country":"AR"
+
+//- "membership":
+//- "changed_from_substitute":false, //check
+//- "date_changed_from_substitute":"",
+//- "end_date":"2023-12-31",
+//- "goes_for_coalition":true, //check
+//- "goes_for_reelection":false, //check
+//- "is_substitute":false, //check
+//- "membership_type":"officeholder",
+//- "parent_membership_id":"", //check
+//- "start_date":"2020-01-01",
+
+//- "role":
+//- "role":"legislatorLowerBody",
+//- "title": "en_US":"Deputy"
+
+//- "party":
+//- "abbreviation": "es_AR":"CAMBIA JUJUY"
+//- "colors":["Pink"],
+//- "fb_urls":[], //check
+//- "ig_urls":[], //check
+//- "logo_urls":[], //check
+//- "websites":[], //check
+//- "name": "es_AR":"CAMBIA JUJUY"
+
+//- "contest":
+//- "title": "en_US":"Diputación del Distrito Federal 11 de PUEBLA"
+//- "end_date":"2021-06-02",
+
+
++footer()

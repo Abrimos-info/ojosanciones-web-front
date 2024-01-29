@@ -1,0 +1,38 @@
+include head.pug
++head("Ojo a las sanciones")
+
+div.wrapper
+    div.infobanner_gob
+        div.infobanner_info
+            h1 La información de sanciones es fundamental para la mejora de las contrataciones públicas
+
+    div.hometext#razon
+        p Recopilamos y publicamos datos
+
+    div.cardbox
+        div.card#buscador1
+            div.icon
+                img(src="/static/img/icon-contratos.png" width="80")
+            h2.cardTitle Buscador
+            p Escribe nombre de empresa para buscar
+            a(href="/buscador/") Buscar
+
+
+    div.estadisticas
+        h2.cardTitle Estadísticas
+
+        div.statWrapper
+            div.stat
+                div.statNumber #{num(stats.contract_count)}
+                div.statText contratos disponibles
+            div.stat
+                div.statNumber #{num(stats.supplier_count)}
+                div.statText proveedores disponibles
+            div.stat
+                div.statNumber #{num(stats.buyer_count)}
+                div.statText entidades estatales disponibles
+
+        div.bottomStat Los datos fueron actualizados por última vez en&nbsp;
+            strong #{fechaFormateada(stats.last_update)}
+
++footer()

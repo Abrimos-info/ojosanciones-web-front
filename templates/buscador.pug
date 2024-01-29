@@ -1,0 +1,157 @@
+include head.pug
++head("Gobernantes.info - Buscador")
+mixin optionName(option)
+    case option
+        when "area"
+            | Área
+        when "contest"
+            | Elección
+        when "person"
+            | Candidato
+        when "party"
+            | Partido
+        when "CO"
+            | Colombia
+        when "AR"
+            | Argentina
+        when "MX"
+            | México
+
+div.wrapper
+    div.buscador
+            form(action="/buscador")
+                fieldset
+                    label(for="keyword") Buscar:
+                    input(type="text", name="keyword", id="keyword", value=keyword, placeholder="Ingrese nombre")
+                    select(name='type')
+                        for option in ["area","person","party", "contest"]
+                            if (type==option)
+                                option(selected="selected",value=option)
+                                    +optionName(option)
+                            else
+                                option(value=option)
+                                    +optionName(option)
+                    select(name='country')
+                        for option in ["CO","AR","MX"]
+                            if (country==option)
+                                option(selected="selected",value=option)
+                                    +optionName(option)
+                            else
+                                option(value=option)
+                                    +optionName(option)
+                    button(type="submit").actionButton Buscar
+
+
+    div.pageTitle
+        h1 Resultados
+        case type
+            when "area"
+                h2
+                    if (result_count==10000)
+                        | Muchas páginas (demasiadas para contarlas:
+                        a(href="https://donate.stripe.com/7sI4hz5773Gh7OodQQ?locale=es&__embed_source=buy_btn_1OKTQ5J92zWRXSIZvx27MEtV" target="_blank") donación
+                        | )
+                    else
+                        | #{result_count} áreas
+                    |  para "#{keyword}" ordenados por monto
+            when "person"
+
+                h2 #{result_count} candidatos para "#{keyword}" ordenadas por relevancia
+            when "contest"
+
+                h2 #{result_count} elecciones para "#{keyword}" ordenadas por relevancia
+            when "party"
+
+                h2 #{result_count} partidos para "#{keyword}" ordenadas por relevancia
+
+    div.results
+        each elem,i in results
+            div.result
+                case type
+                    when "area"
+                        p !{j(elem)}
+                            a(href="/"+elem._source.country+"/area/"+elem._source.id) detalles
+
+
+                        //- p
+                        //-     a(href="/contract/"+elem._source.nog_concurso)
+                        //-         if (elem.highlight && elem.highlight.descripcion)
+                        //-             | !{elem.highlight.descripcion}
+                        //-         else
+                        //-             | !{elem._source.descripcion}
+                        //- if (elem._source.estatus_concurso == "Adjudicado" || elem._source.estatus_concurso == "Terminado adjudicado")
+
+                        //-     p Adjudicado por !{elem._source.entidad_compradora} a&nbsp;
+                        //-         if (elem.highlight && elem.highlight.nombre)
+                        //-             | !{elem.highlight.nombre}
+                        //-         else
+                        //-             | !{elem._source.nombre}
+                        //-         | &nbsp;el !{fechaFormateada(elem._source.fecha_adjudicacion)} por&nbsp;
+                        //-         strong !{num(elem._source.monto,"Q.")}
+                        //- else
+                        //-     p Estatus: !{elem._source.estatus_concurso}
+
+
+                    when "person"
+                        p !{j(elem)}
+                            a(href="/"+elem._source.country+"/person/"+elem._source.id) detalles
+                        //- if elem._source.nombre_persona
+                        //-     a(href="/proveedor/"+elem._source.nit)  #{elem._source.nombre_persona}
+                        //- else
+                        //-     a(href="/proveedor/"+elem._source.nit)  #{elem._source.nombre_razon_social}
+
+
+                        //- span  (#{elem._source.tipo_organizacion}, NIT #{elem._source.nit})
+
+                        //- each nom in elem._source.nombres_comerciales
+                        //-     p nombres_comerciales #{nom}
+                    when "party"
+                        p !{j(elem)}
+                            a(href="/"+elem._source.country+"/party/"+elem._source.id) detalles
+                    when "contest"
+                        p !{j(elem)}
+                            a(href="/"+elem._source.country+"/contest/"+elem._source.id) detalles
+                        //- a(href="/entidad/"+elem.key)  #{elem.key}
+
+
+                        //- span  (Cantidad total de contratos: #{num(elem.doc_count)})
+
+            hr
+
+    if (result_count> pageSize)
+        div.pagesContainer(style="text-align: center")
+            - var maxPages = 6;
+            if((currentPage+1) == 1)
+                - var page = 0;
+                if(maxPages < pages)
+                    - var endPage = maxPages;
+                else
+                    - var endPage = pages;
+            else
+                if((currentPage+1) > (maxPages/2))
+                    if((currentPage+1) > (pages-maxPages))
+                        - var page = pages - maxPages;
+                    else
+                        - var page = (currentPage+1) - (maxPages/2);
+                    if((currentPage+1) + (maxPages/2) < pages)
+                        - var endPage = (currentPage+1) + (maxPages/2);
+                    else
+                        - var endPage = pages;
+                else
+                    - var page = 0;
+                    if(maxPages < pages)
+                        - var endPage = maxPages;
+                    else
+                        - var endPage = pages;
+
+            a(href=modifySearchParams(searchParams,"page",1)).page &laquo;
+            while (page<endPage)
+                - page++
+                if ((currentPage+1) == page)
+                    a(href=modifySearchParams(searchParams,"page",page)).page.current #{num(page)}
+                else
+                    a(href=modifySearchParams(searchParams,"page",page)).page #{num(page)}
+            a(href=modifySearchParams(searchParams,"page",pages)).page &raquo;
+        div.pagesContainer(style="text-align: center")
+            p Página #{num(currentPage+1)} de #{num(pages)}
++footer()
