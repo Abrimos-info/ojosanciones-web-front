@@ -1,5 +1,5 @@
 include head.pug
-+head("Gobernantes.info - Buscador")
++head("Ojo a las sanciones - Buscador")
 mixin optionName(option)
     case option
         when "area"
@@ -21,24 +21,22 @@ div.wrapper
     div.buscador
             form(action="/buscador")
                 fieldset
-                    label(for="keyword") Buscar:
-                    input(type="text", name="keyword", id="keyword", value=keyword, placeholder="Ingrese nombre")
-                    select(name='type')
-                        for option in ["area","person","party", "contest"]
-                            if (type==option)
-                                option(selected="selected",value=option)
-                                    +optionName(option)
-                            else
-                                option(value=option)
-                                    +optionName(option)
-                    select(name='country')
-                        for option in ["CO","AR","MX"]
-                            if (country==option)
-                                option(selected="selected",value=option)
-                                    +optionName(option)
-                            else
-                                option(value=option)
-                                    +optionName(option)
+                    each filter,id in filters
+                        case filter.type
+                            
+                            when "exact-string"
+                            when "text"
+                                label(for=id) !{filter.label}
+                                input(type="text", name=id, id=id, value=filter.value, placeholder=filter.prompt)
+                            when "select"
+                                label(for=id) !{filter.label}
+                                select(name=id, title=filter.prompt)
+                                    for option in filter.options
+                                        #{j(option)}
+                                        if (filter.value==option.value)
+                                            option(selected="selected",value=option.value) !{option.label}
+                                        else
+                                            option(value=option.value) !{option.label}
                     button(type="submit").actionButton Buscar
 
 

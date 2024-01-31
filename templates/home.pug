@@ -10,12 +10,14 @@ div.wrapper
         p Recopilamos y publicamos datos
 
     div.cardbox
-        div.card#buscador1
+        div.cardFull#buscador1
             div.icon
                 img(src="/static/img/icon-contratos.png" width="80")
             h2.cardTitle Buscador
             p Escribe nombre de empresa para buscar
-            a(href="/buscador/") Buscar
+            form(action="/buscador")
+                input(name="nombre")
+                button(href="/buscador/", class="btn") Buscar
 
 
     div.estadisticas
@@ -31,6 +33,16 @@ div.wrapper
             div.stat
                 div.statNumber #{num(stats.buyer_count)}
                 div.statText entidades estatales disponibles
+
+        h3 Porcentaje total por cada categoría de sanción
+        img(src="https://www.lifeder.com/wp-content/uploads/2021/06/Mapa-de-Mexico-5-1024x712.jpg", alt="", srcset="")
+        h3 Montos máximos asignados por dependencia por categoría de sanción
+        img(src="https://www.lifeder.com/wp-content/uploads/2021/06/Mapa-de-Mexico-5-1024x712.jpg", alt="", srcset="")
+        h3 Prevalencia de sanciones por estado
+        img(src="https://www.lifeder.com/wp-content/uploads/2021/06/Mapa-de-Mexico-5-1024x712.jpg", alt="", srcset="")
+
+        h3 Montos máximos asignados por Estado
+        img(src="https://www.lifeder.com/wp-content/uploads/2021/06/Mapa-de-Mexico-5-1024x712.jpg", alt="", srcset="")
 
         div.bottomStat Los datos fueron actualizados por última vez en&nbsp;
             strong #{fechaFormateada(stats.last_update)}

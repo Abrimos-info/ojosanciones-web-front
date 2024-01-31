@@ -3,7 +3,7 @@
 const optionDefinitions = [
     { name: 'elastic_uri', alias: 'e', type: String }, // id field to use for file names in the dataset
     { name: 'keywordList', alias: 'k', type: String }, // id field to use for file names in the dataset
-    { name: 'elastic_index', alias: 'i', type: String, defaultValue: "gob_area}" } // elastic index name to query
+    { name: 'elastic_index', alias: 'i', type: String, defaultValue: "" } // elastic index name to query
 ];
 
 const commandLineArgs = require('command-line-args');

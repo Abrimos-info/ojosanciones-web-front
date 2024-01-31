@@ -188,6 +188,7 @@ fieldset {
 }
 
 .estadisticas,
+.cardFull,
 .card {
     padding: 1%;
     border:solid 1px #c6cfd6;
@@ -229,6 +230,11 @@ fieldset {
         float: left;
         margin: 1% 0;
     }
+
+    .cardFull {
+        width: 100%;
+    }
+
 }
 
 .card form {
