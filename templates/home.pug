@@ -15,9 +15,9 @@ div.wrapper
                 img(src="/static/img/icon-contratos.png" width="80")
             h2.cardTitle Buscador
             p Escribe nombre de empresa para buscar
-            form(action="/buscador")
+            form(action=baseurl+"buscador")
                 input(name="nombre")
-                button(href="/buscador/", class="btn") Buscar
+                button(class="btn") Buscar
 
 
     div.estadisticas
