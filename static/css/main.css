@@ -516,3 +516,9 @@ hr,
     .footer p { margin:0 }
     .footerlogo { margin:10px }
 }
+@media screen and (max-width: 600px) {
+    .logo {
+        width: 150px;
+        margin-top: 15px;
+    }
+}
