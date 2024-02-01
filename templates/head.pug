@@ -23,12 +23,41 @@ mixin head(title)
                 div.menu#mainMenu
                     a.headerButton(href=baseurl+"buscador") Búsqueda
                     a.headerButton(href=baseurl+"acerca-de") Acerca de
-                    a.headerButton(href=baseurl+"#buscador1") Donación
+                    script(async,src="https://js.stripe.com/v3/buy-button.js")
+                    stripe-buy-button(buy-button-id="buy_btn_1Of4oUJ92zWRXSIZuaZeWXx2",publishable-key="pk_live_51MTa2PJ92zWRXSIZCIC0lsbhPSCZX0DICl4Te0c0lYLUoe3ZG1hWQQ0u0pnZ5LRyXXCcLVaLGs9hLHrfg95rDwAb00GxHKbRHB")
+                div.menu#mainMenuHandle
+                    a.headerButton MENÚ
             div.banner
                 div.icon
                     img(src="/static/img/warning.png", width="40")
                 div.text
-                    p IMPORTANTE: Esta es una en proceso de desarollo para Ojo a las sanciones
+                    p IMPORTANTE: Esta es una web en proceso de desarollo para Ojo a las sanciones
+        script 
+            | function checkWidth() {
+            |    if (window.innerWidth < 970) { 
+            |       document.getElementById("mainMenu").style.display = "none"; 
+            |       document.getElementById("mainMenuHandle").style.display = "block"; 
+            |   } 
+            |   else {
+            |       document.getElementById("mainMenu").style.display = "block"; 
+            |       document.getElementById("mainMenuHandle").style.display = "none"; 
+            |   }
+            | }
+            | function showMenu() {
+            |       document.getElementById("mainMenu").style.display = "block"; 
+            |       document.getElementById("mainMenuHandle").style.display = "none"; 
+            | }
+            | function hideMenu() {
+            |       document.getElementById("mainMenu").style.display = "none"; 
+            |       document.getElementById("mainMenuHandle").style.display = "block"; 
+            | }
+            | function toggleMenu() {
+            |       document.getElementById("mainMenu").style.display = (document.getElementById("mainMenu").style.display == "none" ? "block" : "none"); 
+            |       document.getElementById("mainMenuHandle").classList.toggle("open")
+            | }
+            | window.addEventListener("resize",checkWidth);
+            | checkWidth();
+            | document.getElementById("mainMenuHandle").addEventListener("click",toggleMenu);
 
 mixin footer()
     div.contact

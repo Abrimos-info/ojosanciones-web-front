@@ -1,21 +1,5 @@
 include head.pug
 +head("Ojo a las sanciones - Buscador")
-mixin optionName(option)
-    case option
-        when "area"
-            | Área
-        when "contest"
-            | Elección
-        when "person"
-            | Candidato
-        when "party"
-            | Partido
-        when "CO"
-            | Colombia
-        when "AR"
-            | Argentina
-        when "MX"
-            | México
 
 div.wrapper
     div.buscador
@@ -42,29 +26,13 @@ div.wrapper
 
     div.pageTitle
         h1 Resultados
-        case type
-            when "area"
-                h2
-                    if (result_count==10000)
-                        | Muchas páginas (demasiadas para contarlas:
-                        a(href="https://donate.stripe.com/7sI4hz5773Gh7OodQQ?locale=es&__embed_source=buy_btn_1OKTQ5J92zWRXSIZvx27MEtV" target="_blank") donación
-                        | )
-                    else
-                        | #{result_count} áreas
-                    |  para "#{keyword}" ordenados por monto
-            when "person"
-
-                h2 #{result_count} candidatos para "#{keyword}" ordenadas por relevancia
-            when "contest"
-
-                h2 #{result_count} elecciones para "#{keyword}" ordenadas por relevancia
-            when "party"
-
-                h2 #{result_count} partidos para "#{keyword}" ordenadas por relevancia
+        h2 #{result_count} #{filters.type.value}  para "#{keyword}" ordenadas por relevancia
 
     div.results
         each elem,i in results
             div.result
+                p Cartón corrugado SA de CV. Sanción vigente desde el 01/02/23. 3 sanciones. 
+                    a(href="/mx/empresa/1") Detalles
                 case type
                     when "area"
                         p !{j(elem)}
@@ -110,7 +78,8 @@ div.wrapper
                         p !{j(elem)}
                             a(href="/"+elem._source.country+"/contest/"+elem._source.id) detalles
                         //- a(href="/entidad/"+elem.key)  #{elem.key}
-
+                    when "sancion"
+                        p Sanción
 
                         //- span  (Cantidad total de contratos: #{num(elem.doc_count)})
 

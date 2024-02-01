@@ -141,6 +141,7 @@ fieldset {
     text-align: center;
 }
 
+
 @media screen and (max-width: 550px) {
     .headerButton {
         display: block;
@@ -214,6 +215,7 @@ fieldset {
         line-height:18px;
         text-align:center;
     }
+    .cardFull input,
     .card input {
         width:100%;
         height:40px;
@@ -223,6 +225,19 @@ fieldset {
         color:#000;
         border:solid 1px #c6cfd6;
     }
+
+    .cardFull input {
+        width: 50%;
+        height:35px;
+        box-sizing:border-box;
+        margin-right: 2px;
+        margin-left: 50px;
+        padding:10px 4px 13px 10px;
+        font-size:20px;
+        color:#000;
+        border:solid 1px #8b9197;
+    }
+
 
 @media screen and (min-width: 800px) {
     .card {
@@ -241,6 +256,7 @@ fieldset {
     width: 100%;
 }
 
+.cardFull .actionButton,
 .card .actionButton {
     border:none;
     padding:6px 15px;
@@ -463,9 +479,29 @@ hr,
     }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 970px) {
     .banner { padding: 0 0.5em }
-    #mainMenu { margin-top:5px; }
+    #mainMenuHandle {
+        line-height: 40px;
+        font-size: 11px;
+        text-align: center;
+    }
+    #mainMenuHandle.open {
+        opacity: 0.5;
+        transition: opacity 0.5s ease-in-out;
+    }
+    #mainMenu { 
+        position: absolute;
+        right: 0;
+        width: 200px;
+        background-color: #c6cfd6;
+        margin-top: -20px;
+        text-align: center;
+    }
+    .headerButton {
+        position: static;
+        margin: 1em;
+    }
     .hometext { padding: 0 }
     .estadisticas .stat {
         width:100%;

@@ -1,0 +1,31 @@
+include head.pug
+
+mixin field(id,title,value)
+    if value
+        tr.field
+            td.fieldTitle #{title}:
+            td.fieldValue !{value}
+
++head("Ojo a las sanciones - Empresa")
+//- +buyer.key)
+div.wrapper
+    
+
+    h1 Empresa Cartón Corrugado SA de CV
+    div.details
+        table
+            +field("tipo_sancion","Tipo de Sanción","Inhabilitada")
+            +field("sancion_link", "Enlace", "<a href='/'>link</a>")
+
+        h2 Explicación legal 
+        p Mumbo jumbo, legalés, legalés, etcMumbo jumbo, legalés, legalés, etcMumbo jumbo, legalés, legalés, etcMumbo jumbo, legalés, legalés, etcMumbo jumbo, legalés, legalés, etcMumbo jumbo, legalés, legalés, etc
+
+        h2 Detalles de la empresa
+        table
+            +field("tipo_sancion","Tipo de Sanción","Inhabilitada")
+            +field("sancion_link", "Enlace", "<a href='/'>link</a>")
+
+
+
+
++footer()
