@@ -1,31 +1,138 @@
 include head.pug
 
-mixin field(id,title,value)
-    if value
-        tr.field
-            td.fieldTitle #{title}:
-            td.fieldValue !{value}
 
-+head("Ojo a las sanciones - Empresa")
+mixin field(id,title,value)
+    if value && value.length > 0
+        span.field(class=id)
+            span.fieldTitle #{title}
+            span.fieldValue
+                if (id == "nit")
+                    a(href="/proveedor/"+value) #{value}
+                else
+                    | !{cut(value,10000)}
+
+
+
+
+mixin hfield(id,title,value,highlight)
+    if (highlight && highlight[id])
+        each match in highlight[id]
+            +field(id+ " field_main highlight",title,match)
+    else
+        +field(id+ " field_main",title,value)
+
++head("Ojo a las sanciones - " + item._source.nombre_razon_social)
 //- +buyer.key)
 div.wrapper
-    
+    //- p #{j(item)}
 
-    h1 Empresa Cartón Corrugado SA de CV
-    div.details
-        table
-            +field("tipo_sancion","Tipo de Sanción","Inhabilitada")
-            +field("sancion_link", "Enlace", "<a href='/'>link</a>")
+    div.actionBar
+        +field("folio_unico","Folio",item._source.folio_unico  )
 
-        h2 Explicación legal 
-        p Mumbo jumbo, legalés, legalés, etcMumbo jumbo, legalés, legalés, etcMumbo jumbo, legalés, legalés, etcMumbo jumbo, legalés, legalés, etcMumbo jumbo, legalés, legalés, etcMumbo jumbo, legalés, legalés, etc
+        h2 Acciones
+        ul
+            li 
+                a.whatsapp(href="whatsapp://send?text="+enc("Por favor revisa estas sanciones https://ojosanciones.sociedad.info/mx/empresa/" + item._source.rfc + "")) 
+                    img(src="/static/img/whatsapp.png", alt="Compartir vía whatsapp") 
+                    | Compartir
+            li 
+                a.telegram(href="https://t.me/share/url?url="+enc("Por favor revisa estas sanciones https://ojosanciones.sociedad.info/mx/empresa/" + item._source.rfc + ""))
+                    img(src="/static/img/telegram.png", alt="Compartir vía telegram")
+                    | Compartir
+            li 
+                a(href=item._source.archivo_adjunto) Descargar
+            //- li 
+            //-     a(href="/alertas") Crear alerta
+            //- li 
+            //-     a(href="/alertas") Solicitar investigación
+            //- li 
+            //-     a(href="/alertas") Reclamar
 
-        h2 Detalles de la empresa
-        table
-            +field("tipo_sancion","Tipo de Sanción","Inhabilitada")
-            +field("sancion_link", "Enlace", "<a href='/'>link</a>")
+    div.itemContents
+        div.fieldsetgroup.titulo
+            h1 Sanciones a #{item._source.nombre_razon_social}
+        div.fieldsetgroup.encabezado 
+            div.fieldset.fielset_main
+                +field("rfc","RFC",item._source.rfc)
+                +field("otros_nombres","otros_nombres",item._source.otros_nombres)
+                +field("entidad_federativa","Entidad federativa",item._source.entidad_federativa)
+            
+        if item._source.sanciones
+                h2 Sanciones
+                each sancion in item._source.sanciones
+                    div.fieldsetgroup
+                        +field("numero_expediente","Expediente",sancion.numero_expediente)
+                        +field("fecha_notificacion","Fecha de notificacion", fechaFormateada(fechaFormateada(sancion.fecha_notificacion)))
+                        +field("fecha_dof","Publicado en DOF",fechaFormateada(sancion.fecha_dof))
+                        +field("fuente","Fuente",sancion.fuente)
+                        +hfield("causa main_field","Causa de la sanción",sancion.causa)
+                        +field("periodo_inhabilitacion","Duración de la inhabilitación",sancion.periodo_inhabilitacion)
+                        +field("fecha_inicio","desde",fechaFormateada(sancion.fecha_inicio))
+
+                        +field("fecha_fin","hasta",fechaFormateada(sancion.fecha_fin))
+
+                        +hfield("field_main observaciones","Observaciones",sancion.observaciones)
+                        +field("institucion_dependencia","Institucion o dependencia",sancion.institucion_dependencia)
+
+                        +field("monto_multa","monto_multa",sancion.monto_multa)
+                        +field("objeto_social","Objeto social",sancion.objeto_social)
+                        +hfield("leyes_infringidas","Leyes infringidas",sancion.leyes_infringidas)
+
+                        //- +field("telefono","Teléfono de la empresa",sancion.telefono)
 
 
+
+
+
+
+                        if (sancion.fecha_publicacion_dof_presuntos)
+                            h3 Presunción
+                            +hfield("fecha_publicacion_dof_presuntos","Publicación de presunción de el diario de la federación",fechaFormateada(sancion.fecha_publicacion_dof_presuntos))
+                            +field("numero_oficio_presuncion_sat","Oficio SAT",sancion.numero_oficio_presuncion_sat)
+
+                            +field("fecha_oficio_presuncion_sat","Fecha",fechaFormateada(sancion.fecha_oficio_presuncion_sat))
+
+                            +field("fecha_publicacion_sat_presuntos","Publicacion",fechaFormateada(sancion.fecha_publicacion_sat_presuntos))
+
+                            +field("numero_oficio_presuncion_dof","Oficio presuncion DOF (repetido?)",sancion.numero_oficio_presuncion_dof)
+
+                            +field("fecha_oficio_presuncion_dof","Fecha (repetido?)",fechaFormateada(sancion.fecha_oficio_presuncion_dof))
+
+
+                        if (sancion.fecha_publicacion_dof_definitivos)
+                            h3 Sanción definitiva
+                            +hfield("fecha_publicacion_dof_definitivos","Publicación de sanción definitiva en el DOF",fechaFormateada(sancion.fecha_publicacion_dof_definitivos))
+
+                            +field("numero_oficio_definitivos_sat","Oficio definitivo SAT",sancion.numero_oficio_definitivos_sat)
+
+                            +field("fecha_oficio_definitivos_sat","Fecha",fechaFormateada(sancion.fecha_oficio_definitivos_sat))
+
+                            +field("fecha_publicacion_sat_definitivos","Publicación SAT",fechaFormateada(sancion.fecha_publicacion_sat_definitivos))
+
+                            +field("numero_oficio_definitivos_dof","Oficio DOF (repetido?)",sancion.numero_oficio_definitivos_dof)
+
+                            +field("fecha_oficio_definitivos_dof","Fecha oficio DOF (repetido?)",fechaFormateada(sancion.fecha_oficio_definitivos_dof))
+
+
+                        if (sancion.fecha_publicacion_dof_sentencia_favorable)
+                            h3 Sentencia favorable
+                            +hfield("fecha_publicacion_dof_sentencia_favorable","fecha_publicacion_dof_sentencia_favorable",fechaFormateada(sancion.fecha_publicacion_dof_sentencia_favorable))
+                            +field("numero_oficio_sentencia_favorable_sat","numero_oficio_sentencia_favorable_sat",sancion.numero_oficio_sentencia_favorable_sat)
+
+                            +field("fecha_oficio_sentencia_favorable_sat","fecha_oficio_sentencia_favorable_sat",fechaFormateada(sancion.fecha_oficio_sentencia_favorable_sat))
+
+                            +field("fecha_publicacion_sat_sentencia_favorable","fecha_publicacion_sat_sentencia_favorable",fechaFormateada(sancion.fecha_publicacion_sat_sentencia_favorable))
+
+                            +field("numero_oficio_sentencia_favorable_dof","numero_oficio_sentencia_favorable_dof",sancion.numero_oficio_sentencia_favorable_dof)
+
+                            +field("fecha_oficio_sentencia_favorable_dof","fecha_oficio_sentencia_favorable_dof",fechaFormateada(sancion.fecha_oficio_sentencia_favorable_dof))
+
+
+                        if sancion.responsable
+                            +field("responsable.cargo","Cargo del responsable por la sanción",sancion.responsable.cargo)
+                            //- +field("responsable.nombre","Persona responsable por la sanción",sancion.responsable.nombre)
+                            //- +field("responsable.email","Email",sancion.responsable.email)
+                            //- +field("responsable.telefono","Telefono",sancion.responsable.telefono)
 
 
 +footer()

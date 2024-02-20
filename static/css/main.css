@@ -372,41 +372,139 @@ fieldset {
     .contracts p.fecha {
         font-size:18px;
     }
-    table {
-        font-size:14px;
-        width:100%;
-        margin:20px 0 30px 0;
-        border-spacing:0;
-    }
-        table tr.field:nth-child(even) { background:#e6eff6; }
-        table td.fieldTitle {
-            font-family:PoppinsBold;
-            color:#0f3d57;
-            padding:5px;
-            width:25%;
-        }
-        table td.fieldValue {
-            font-weight:bolder;
-            color: #2B2B2B;
-            padding:5px;
-            width:75%;
-        }
-    hr {
-        border-top:solid 2px #e6eff6;
-    }
 
-.searchTermTitle {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
 
-    color: #474c4a;
+/* ITEM */
+
+.fieldset {
+    display: block;
 }
-hr,
-.result {
-    clear: both;
+
+.fieldset.fielset_main {
+    background: none;
+}
+
+.fieldsetgroup {
+    display: block;
     margin-bottom: 2em;
+    border: 1px solid #eee;
+    padding: 1em 1em 0 1em;
+    border-radius: 5px;
 }
+
+
+
+.fieldsetgroup.titulo {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.field {
+    display: inline-block;
+    margin-bottom: 1em;
+    line-height: 2em
+}
+@media screen and (max-width: 750px) {
+    .field {
+        display: block;
+        line-height: 1.3em;
+        margin-bottom: 0.3em;
+    }
+}
+
+.fieldTitle {
+    font-size: 12px;
+    font-weight: normal;
+    color: #6A706E;
+}
+
+.fieldValue {
+    font-size: 14px;
+    color: #2B2B2B;
+    background: #eee;
+    display: inline-block;
+    padding: 0 0.5em;
+    border-radius: 5px;
+    font-weight: normal;
+    margin: 0 1.2em 0 0.3em;
+    line-height: 24px;
+}
+
+
+.field_main {
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.field_main .fieldTitle {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 1em;
+    position: relative;
+    font-weight: bold;
+    color: #6A706E;
+}
+
+.field_main .fieldValue {
+    font-size: 1.2em;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+.actionBar {
+    float: right;
+    background-color: #c6cfd6;
+    padding: 1em;
+    margin-left: 2em;
+}
+
+@media screen and (max-width: 800px) {
+    .actionBar {
+        float: none;
+    }
+}
+
+.folioContents {
+    display: flow-root;
+}
+
+
+table {
+    font-size: 14px;
+    width: 100%;
+    margin: 20px 0 30px 0;
+    border-spacing: 0;
+}
+
+table tr.field:nth-child(even) {
+    background: #e6eff6;
+}
+
+table td.fieldTitle {
+    padding: 5px;
+    width: 25%;
+}
+
+table td.fieldValue {
+    font-weight: bolder;
+    color: #2B2B2B;
+    padding: 5px;
+    width: 75%;
+}
+
+hr {
+    border-top: solid 2px #e6eff6;
+}
+
+.fieldValue em {
+    background-color: yellow;
+}
+
+/* RESULTS */
 
 
 .result em {

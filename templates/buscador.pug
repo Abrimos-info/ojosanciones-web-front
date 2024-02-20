@@ -31,9 +31,7 @@ div.wrapper
     div.results
         each elem,i in results
             div.result
-                p Cartón corrugado SA de CV. Sanción vigente desde el 01/02/23. 3 sanciones. 
-                    a(href="/mx/empresa/1") Detalles
-                case type
+                case filters.type.value
                     when "area"
                         p !{j(elem)}
                             a(href="/"+elem._source.country+"/area/"+elem._source.id) detalles
@@ -79,7 +77,17 @@ div.wrapper
                             a(href="/"+elem._source.country+"/contest/"+elem._source.id) detalles
                         //- a(href="/entidad/"+elem.key)  #{elem.key}
                     when "sancion"
-                        p Sanción
+                        
+                        p #{elem._source.nombre_razon_social}
+                            span  (RFC: #{elem._source.rfc})
+                        p #{elem._source.sanciones.length}
+                            if (elem._source.sanciones.length > 1)
+                                span  sanciones.    
+                            else 
+                                span  sanción.
+                            span  Última sanción: #{fechaFormateada(elem._source.sanciones.sort((a,b)=>a.fecha_notificacion<b.fecha_notificacion)[0].fecha_notificacion)}
+                        a(href="/mx/empresa/"+elem._source.rfc) Detalles
+
 
                         //- span  (Cantidad total de contratos: #{num(elem.doc_count)})
 
