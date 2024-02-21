@@ -78,15 +78,15 @@ div.wrapper
                         //- a(href="/entidad/"+elem.key)  #{elem.key}
                     when "sancion"
                         
-                        p #{elem._source.nombre_razon_social}
-                            span  (RFC: #{elem._source.rfc})
+                        a(href="/mx/empresa/"+elem._source.rfc) #{elem._source.nombre_razon_social}
+                        span  (RFC: #{elem._source.rfc})
+                        a(href="/mx/empresa/"+elem._source.rfc,  style="float: right").detailsButton Detalles
                         p #{elem._source.sanciones.length}
                             if (elem._source.sanciones.length > 1)
                                 span  sanciones.    
                             else 
                                 span  sanción.
                             span  Última sanción: #{fechaFormateada(elem._source.sanciones.sort((a,b)=>a.fecha_notificacion<b.fecha_notificacion)[0].fecha_notificacion)}
-                        a(href="/mx/empresa/"+elem._source.rfc) Detalles
 
 
                         //- span  (Cantidad total de contratos: #{num(elem.doc_count)})
@@ -96,20 +96,20 @@ div.wrapper
     if (result_count> pageSize)
         div.pagesContainer(style="text-align: center")
             - var maxPages = 6;
-            if((currentPage+1) == 1)
+            if(currentPage == 1)
                 - var page = 0;
                 if(maxPages < pages)
                     - var endPage = maxPages;
                 else
                     - var endPage = pages;
             else
-                if((currentPage+1) > (maxPages/2))
-                    if((currentPage+1) > (pages-maxPages))
+                if(currentPage > (maxPages/2))
+                    if(currentPage > (pages-maxPages))
                         - var page = pages - maxPages;
                     else
-                        - var page = (currentPage+1) - (maxPages/2);
-                    if((currentPage+1) + (maxPages/2) < pages)
-                        - var endPage = (currentPage+1) + (maxPages/2);
+                        - var page = currentPage - (maxPages/2);
+                    if(currentPage + (maxPages/2) < pages)
+                        - var endPage = currentPage + (maxPages/2);
                     else
                         - var endPage = pages;
                 else
@@ -122,11 +122,11 @@ div.wrapper
             a(href=modifySearchParams(searchParams,"page",1)).page &laquo;
             while (page<endPage)
                 - page++
-                if ((currentPage+1) == page)
+                if (currentPage == page)
                     a(href=modifySearchParams(searchParams,"page",page)).page.current #{num(page)}
                 else
                     a(href=modifySearchParams(searchParams,"page",page)).page #{num(page)}
             a(href=modifySearchParams(searchParams,"page",pages)).page &raquo;
         div.pagesContainer(style="text-align: center")
-            p Página #{num(currentPage+1)} de #{num(pages)}
+            p Página #{num(currentPage)} de #{num(pages)}
 +footer()

@@ -45,11 +45,11 @@ h2 {
 
 h1,h2,h3,h4,h5,h6 {
     font-family:PoppinsBold;
-    color:#0f3d57;
+    color:#CE3436;
 }
 
 hr {
-    color: #474c4a;
+    color: #000;
 }
 
 fieldset {
@@ -116,7 +116,7 @@ fieldset {
 .menu li {
     display: inline-block;
     padding: 0.2em;
-    background: #ffc33f;
+    background: #FFC107;
     border-radius: 5px;
     margin: 1em;
 }
@@ -132,7 +132,7 @@ fieldset {
 .headerButton {
     display: inline-block;
     padding: 0.8em 2em;
-    background: #0074d4;
+    background: #CE3436;
     color: white;
     margin-right: 2em;
     position: relative;
@@ -156,7 +156,7 @@ fieldset {
     text-align: center;
     padding: 2em;
     height: 286px;
-    border:solid 1px #0f3d57;
+    border:solid 1px #CE3436;
     box-sizing:border-box;
     display:flex;
     align-items: center;
@@ -179,7 +179,7 @@ fieldset {
     .hometext p {
         font-family:PoppinsRegular;
         font-size:18px;
-        color:#0f3d57;
+        color:#CE3436;
     }
 
 .cardbox {
@@ -192,7 +192,7 @@ fieldset {
 .cardFull,
 .card {
     padding: 1%;
-    border:solid 1px #c6cfd6;
+    border:solid 1px #c0c0c0;
     box-sizing: border-box;
     min-height: 12em;
     margin-bottom:10px;
@@ -203,13 +203,13 @@ fieldset {
     }
     .cardTitle {
         font-family:PoppinsBold;
-        color:#0f3d57;
+        color:#CE3436;
         text-align:center;
         font-size:25px;
         margin:25px 0;
     }
     .card p {
-        color:#0f3d57;
+        color:#CE3436;
         font-family:PoppinsRegular;
         font-size:16px;
         line-height:18px;
@@ -223,7 +223,7 @@ fieldset {
         padding:5px 10px;
         font-size:20px;
         color:#000;
-        border:solid 1px #c6cfd6;
+        border:solid 1px #c0c0c0;
     }
 
     .cardFull input {
@@ -235,7 +235,7 @@ fieldset {
         padding:10px 4px 13px 10px;
         font-size:20px;
         color:#000;
-        border:solid 1px #8b9197;
+        border:solid 1px #c0c0c0;
     }
 
 
@@ -256,23 +256,26 @@ fieldset {
     width: 100%;
 }
 
+.detailsButton,
 .cardFull .actionButton,
 .card .actionButton {
     border:none;
     padding:6px 15px;
     text-align: center;
-    background:#f5bd53;
+    background:#E6AA3A;
     font-family:PoppinsMedium;
     font-size:16px;
-    color:#0f3d57;
+    color:#000;
     text-align:center;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 .estadisticas {
     margin-top:50px;
     clear: both;
     font-family:PoppinsMedium;
-    color:#0f3d57;
+    color:#CE3436;
 }
     .estadisticas .statWrapper {
         display:flex;
@@ -281,7 +284,7 @@ fieldset {
         margin-bottom:25px;
     }
         .estadisticas .stat {
-            border-right: solid 1px #c6cfd6;
+            border-right: solid 1px #c0c0c0;
             width:33%;
         }
             .estadisticas .stat:last-child { border:none }
@@ -306,7 +309,7 @@ fieldset {
 
 /* Resultados */
 .buscador {
-    background: #c6cfd6;
+    background: #C0C0C0;
     padding: 0.5em 1em;
     margin: 1em 2em 1em 1em;
     border-radius: 6px;
@@ -457,9 +460,17 @@ fieldset {
 
 .actionBar {
     float: right;
-    background-color: #c6cfd6;
+    border: 1px solid #c0c0c0;
+    border-radius: 10px;
     padding: 1em;
     margin-left: 2em;
+}
+
+.actionBar ul,
+.actionBar li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 @media screen and (max-width: 800px) {
@@ -548,7 +559,7 @@ hr {
 .footer {
     margin-top:30px;
     clear: both;
-    background:#15304f;
+    background:#000;
     min-height:80px;
     display:flex;
     align-items: center;
@@ -568,7 +579,7 @@ hr {
 }
     .footer a {
         text-decoration:none;
-        color:#f5bd53;
+        color:#E6AA3A;
         font-weight:bold;
     }
     .twitter {
@@ -592,7 +603,7 @@ hr {
         position: absolute;
         right: 0;
         width: 200px;
-        background-color: #c6cfd6;
+        background-color: #c0c0d0;
         margin-top: -20px;
         text-align: center;
     }
@@ -605,7 +616,7 @@ hr {
         width:100%;
         box-sizing:border-box;
         border-right:none;
-        border-bottom:solid 1px #c6cfd6;
+        border-bottom:solid 1px #c0c0d0;
         margin:20px 20px 0 20px;
         padding-bottom:20px;
     }

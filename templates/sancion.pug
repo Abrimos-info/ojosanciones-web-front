@@ -64,7 +64,7 @@ div.wrapper
                         +field("numero_expediente","Expediente",sancion.numero_expediente)
                         +field("fecha_notificacion","Fecha de notificacion", fechaFormateada(fechaFormateada(sancion.fecha_notificacion)))
                         +field("fecha_dof","Publicado en DOF",fechaFormateada(sancion.fecha_dof))
-                        +field("fuente","Fuente",sancion.fuente)
+                        +field("fuente","Autoridad sancionadora",sancion.fuente)
                         +hfield("causa main_field","Causa de la sanción",sancion.causa)
                         +field("periodo_inhabilitacion","Duración de la inhabilitación",sancion.periodo_inhabilitacion)
                         +field("fecha_inicio","desde",fechaFormateada(sancion.fecha_inicio))
@@ -72,10 +72,10 @@ div.wrapper
                         +field("fecha_fin","hasta",fechaFormateada(sancion.fecha_fin))
 
                         +hfield("field_main observaciones","Observaciones",sancion.observaciones)
-                        +field("institucion_dependencia","Institucion o dependencia",sancion.institucion_dependencia)
+                        //- +field("institucion_dependencia","Institucion o dependencia",sancion.institucion_dependencia)
 
                         +field("monto_multa","monto_multa",sancion.monto_multa)
-                        +field("objeto_social","Objeto social",sancion.objeto_social)
+                        //- +field("objeto_social","Objeto social",sancion.objeto_social)
                         +hfield("leyes_infringidas","Leyes infringidas",sancion.leyes_infringidas)
 
                         //- +field("telefono","Teléfono de la empresa",sancion.telefono)
@@ -85,33 +85,18 @@ div.wrapper
 
 
 
-                        if (sancion.fecha_publicacion_dof_presuntos)
-                            h3 Presunción
-                            +hfield("fecha_publicacion_dof_presuntos","Publicación de presunción de el diario de la federación",fechaFormateada(sancion.fecha_publicacion_dof_presuntos))
-                            +field("numero_oficio_presuncion_sat","Oficio SAT",sancion.numero_oficio_presuncion_sat)
-
-                            +field("fecha_oficio_presuncion_sat","Fecha",fechaFormateada(sancion.fecha_oficio_presuncion_sat))
-
-                            +field("fecha_publicacion_sat_presuntos","Publicacion",fechaFormateada(sancion.fecha_publicacion_sat_presuntos))
-
-                            +field("numero_oficio_presuncion_dof","Oficio presuncion DOF (repetido?)",sancion.numero_oficio_presuncion_dof)
-
-                            +field("fecha_oficio_presuncion_dof","Fecha (repetido?)",fechaFormateada(sancion.fecha_oficio_presuncion_dof))
-
-
                         if (sancion.fecha_publicacion_dof_definitivos)
-                            h3 Sanción definitiva
-                            +hfield("fecha_publicacion_dof_definitivos","Publicación de sanción definitiva en el DOF",fechaFormateada(sancion.fecha_publicacion_dof_definitivos))
+                            +hfield("numero_oficio_definitivos_dof","Oficio en el Diario Oficial de la Federación",sancion.numero_oficio_definitivos_dof)
+                            +field("fecha_publicacion_dof_definitivos","Publicación en DOF",fechaFormateada(sancion.fecha_publicacion_dof_definitivos))
 
-                            +field("numero_oficio_definitivos_sat","Oficio definitivo SAT",sancion.numero_oficio_definitivos_sat)
+                            //- +field("numero_oficio_definitivos_sat","Oficio definitivo SAT",sancion.numero_oficio_definitivos_sat)
 
-                            +field("fecha_oficio_definitivos_sat","Fecha",fechaFormateada(sancion.fecha_oficio_definitivos_sat))
+                            //- +field("fecha_oficio_definitivos_sat","Fecha",fechaFormateada(sancion.fecha_oficio_definitivos_sat))
 
                             +field("fecha_publicacion_sat_definitivos","Publicación SAT",fechaFormateada(sancion.fecha_publicacion_sat_definitivos))
 
-                            +field("numero_oficio_definitivos_dof","Oficio DOF (repetido?)",sancion.numero_oficio_definitivos_dof)
 
-                            +field("fecha_oficio_definitivos_dof","Fecha oficio DOF (repetido?)",fechaFormateada(sancion.fecha_oficio_definitivos_dof))
+                            //- +field("fecha_oficio_definitivos_dof","Fecha oficio DOF (repetido?)",fechaFormateada(sancion.fecha_oficio_definitivos_dof))
 
 
                         if (sancion.fecha_publicacion_dof_sentencia_favorable)
