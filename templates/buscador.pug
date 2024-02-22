@@ -10,23 +10,28 @@ div.wrapper
                             
                             when "exact-string"
                             when "text"
-                                label(for=id) !{filter.label}
-                                input(type="text", name=id, id=id, value=filter.value, placeholder=filter.prompt)
+                                div(style="display: inline-block")
+                                    label(for=id) !{filter.label}
+                                    input(type="text", name=id, id=id, value=filter.value, placeholder=filter.prompt)
                             when "select"
-                                label(for=id) !{filter.label}
-                                select(name=id, title=filter.prompt)
-                                    for option in filter.options
-                                        #{j(option)}
-                                        if (filter.value==option.value)
-                                            option(selected="selected",value=option.value) !{option.label}
-                                        else
-                                            option(value=option.value) !{option.label}
+                                div(style="display: inline-block")
+                                    label(for=id) !{filter.label}
+                                    select(name=id, title=filter.prompt)
+                                        for option in filter.options
+                                            if (filter.value==option.value)
+                                                option(selected="selected",value=option.value) !{option.label}
+                                            else
+                                                option(value=option.value) !{option.label}
                     button(type="submit").actionButton Buscar
 
 
     div.pageTitle
         h1 Resultados
-        h2 #{result_count} #{filters.type.value}  para "#{keyword}" ordenadas por relevancia
+        h2 #{num(result_count)} #{getOptionLabel(filters.type)}
+            each filter in filters
+                if (filter.value && filter.type != "hidden")
+                    |  con #{filter.label} "#{filter.value}"
+            |  ordenados por #{getOptionLabel(filters.sort)}
 
     div.results
         each elem,i in results

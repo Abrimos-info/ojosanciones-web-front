@@ -23,8 +23,7 @@ mixin head(title)
                 div.menu#mainMenu
                     a.headerButton(href=baseurl+"buscador") Búsqueda
                     a.headerButton(href=baseurl+"acerca-de") Acerca de
-                    script(async,src="https://js.stripe.com/v3/buy-button.js")
-                    stripe-buy-button(buy-button-id="buy_btn_1Of4oUJ92zWRXSIZuaZeWXx2",publishable-key="pk_live_51MTa2PJ92zWRXSIZCIC0lsbhPSCZX0DICl4Te0c0lYLUoe3ZG1hWQQ0u0pnZ5LRyXXCcLVaLGs9hLHrfg95rDwAb00GxHKbRHB")
+                    a.headerButton(href="https://donate.stripe.com/00g6pH9nn5OpgkU3cd", target="_blank") Donar
                 div.menu#mainMenuHandle
                     a.headerButton MENÚ
             div.banner
@@ -32,45 +31,45 @@ mixin head(title)
                     img(src="/static/img/warning.png", width="40")
                 div.text
                     p IMPORTANTE: Esta es una web en proceso de desarollo para Ojo a las sanciones
-        script 
-            | function checkWidth() {
-            |    if (window.innerWidth < 970) { 
-            |       document.getElementById("mainMenu").style.display = "none"; 
-            |       document.getElementById("mainMenuHandle").style.display = "block"; 
-            |   } 
-            |   else {
-            |       document.getElementById("mainMenu").style.display = "block"; 
-            |       document.getElementById("mainMenuHandle").style.display = "none"; 
-            |   }
-            | }
-            | function showMenu() {
-            |       document.getElementById("mainMenu").style.display = "block"; 
-            |       document.getElementById("mainMenuHandle").style.display = "none"; 
-            | }
-            | function hideMenu() {
-            |       document.getElementById("mainMenu").style.display = "none"; 
-            |       document.getElementById("mainMenuHandle").style.display = "block"; 
-            | }
-            | function toggleMenu() {
-            |       document.getElementById("mainMenu").style.display = (document.getElementById("mainMenu").style.display == "none" ? "block" : "none"); 
-            |       document.getElementById("mainMenuHandle").classList.toggle("open")
-            | }
-            | window.addEventListener("resize",checkWidth);
-            | checkWidth();
-            | document.getElementById("mainMenuHandle").addEventListener("click",toggleMenu);
+            script 
+                | function checkWidth() {
+                |    if (window.innerWidth < 970) { 
+                |       document.getElementById("mainMenu").style.display = "none"; 
+                |       document.getElementById("mainMenuHandle").style.display = "block"; 
+                |   } 
+                |   else {
+                |       document.getElementById("mainMenu").style.display = "block"; 
+                |       document.getElementById("mainMenuHandle").style.display = "none"; 
+                |   }
+                | }
+                | function showMenu() {
+                |       document.getElementById("mainMenu").style.display = "block"; 
+                |       document.getElementById("mainMenuHandle").style.display = "none"; 
+                | }
+                | function hideMenu() {
+                |       document.getElementById("mainMenu").style.display = "none"; 
+                |       document.getElementById("mainMenuHandle").style.display = "block"; 
+                | }
+                | function toggleMenu() {
+                |       document.getElementById("mainMenu").style.display = (document.getElementById("mainMenu").style.display == "none" ? "block" : "none"); 
+                |       document.getElementById("mainMenuHandle").classList.toggle("open")
+                | }
+                | window.addEventListener("resize",checkWidth);
+                | checkWidth();
+                | document.getElementById("mainMenuHandle").addEventListener("click",toggleMenu);
 
 mixin footer()
     div.contact
         p Contacto:&nbsp;
-            a(href="mailto:hola@abrimos.info") hola@abrimos.info
+            a(href="mailto:ojosancionesmx@gmail.com") ojosancionesmx@gmail.com
     div.footer
         div.footersocial
-            a(href="https://twitter.com/abrimosinfo", target="_blank")
+            a(href="https://twitter.com/ojosancionesmx", target="_blank")
                 img(src="/static/img/twitter.png").twitter
-        div.footertext
-            p Ojo a las sanciones es un proyecto de +Integridad y
-                a(href="https://www.abrimos.info") &nbsp;abrimos info
-                |  que mejora el acceso a la información pública mediante la innovación tecnológica.
         div.footerlogo
-            a(href="https://abrimos.info/")
-                img(src="/static/img/logo_abrimos.png" height="75")
+            p Ojo a las sanciones es un proyecto creado por
+                a(href="https://bit.ly/38AB3Zl")
+                    img(src="/static/img/+integridad.png" height="50")
+                | y
+                a(href="https://abrimos.info/")
+                    img(src="/static/img/logo_abrimos.png" height="75")
