@@ -151,8 +151,10 @@ fieldset {
 }
 
 /* Home */
-.infobanner {
-    background:url("../img/mainbanner.png") left center no-repeat;
+.infobanner_gob {
+    background: #cccacb  right center no-repeat;
+    background-image:   url("../img/homeillustration.png"), linear-gradient(#cccacb, #fff);
+    background-size: contain;
     text-align: center;
     padding: 2em;
     height: 286px;
@@ -160,16 +162,16 @@ fieldset {
     box-sizing:border-box;
     display:flex;
     align-items: center;
+    margin-bottom: 2em;
 }
 .infobanner_info {
     width:640px;
 }
 
-.infobanner h1 {
+.infobanner_gob h1 {
     text-align: left;
     font-size: 2em;
-    font-family:PoppinsBold;
-    color:#FFF;
+    text-shadow: #333 2px 2px 1px;
 }
 
 .hometext {
@@ -240,6 +242,7 @@ fieldset {
 
 
 @media screen and (min-width: 800px) {
+    
     .card {
         width: 31%;
         float: left;
@@ -614,6 +617,16 @@ hr {
 
 @media screen and (max-width: 970px) {
     .banner { padding: 0 0.5em }
+    .infobanner_gob {
+        background-position: center top;
+        /* background: #cccacb url("../img/homeillustration.png") center top no-repeat;
+        background-size: contain; */
+        height: auto;
+        padding-top: 250px;
+    }
+    .infobanner_info {
+        width: auto;
+    }
     #mainMenuHandle {
         line-height: 40px;
         font-size: 11px;
