@@ -668,3 +668,27 @@ hr {
         margin-top: 15px;
     }
 }
+
+
+/* ABUT */
+dl {
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #eee;
+}
+
+dt {
+    font-weight: bold;
+    margin-bottom: 0.3em;
+    color: #AE7171;
+    font-size: 1.2em;
+}
+
+dd {
+    margin-bottom: 1.5em;
+    margin-left: 0;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid #797979;
+}
+
+
