@@ -30,8 +30,12 @@ div.wrapper
         h2 #{num(result_count)} #{getOptionLabel(filters.type)}
             each filter in filters
                 if (filter.value && filter.type != "hidden")
-                    |  con #{filter.label} "#{filter.value}"
-            |  ordenados por #{getOptionLabel(filters.sort)}
+                    |  con #{filter.label} 
+                    if (filter.type=="select")
+                        | "#{getOptionLabel(filter)}"
+                    else
+                        | "#{filter.value}"
+            |  ordenadas por #{getOptionLabel(filters.sort)}
 
     div.results
         each elem,i in results
