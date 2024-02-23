@@ -149,11 +149,10 @@ fieldset {
         margin: 0 0 0.2em 0;
     }
 }
-
-/* Home */
+/* HOME */
 .infobanner_gob {
-    background: #cccacb  right center no-repeat;
-    background-image:   url("../img/homeillustration.png"), linear-gradient(#cccacb, #fff);
+    background: #dae9f8  right center no-repeat;
+    background-image: url("../img/homeillustration1.png");
     background-size: contain;
     text-align: center;
     padding: 2em;
@@ -171,7 +170,7 @@ fieldset {
 .infobanner_gob h1 {
     text-align: left;
     font-size: 2em;
-    text-shadow: #333 2px 2px 1px;
+    text-shadow: #fff 1px 1px 3px;
 }
 
 .hometext {
