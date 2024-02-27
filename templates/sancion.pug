@@ -50,19 +50,30 @@ mixin hfield(id,title,value,highlight)
         div.itemContents
             div.fieldsetgroup.titulo
                 h1 Sanciones a #{item._source.nombre_razon_social}
+
+            ul 
+                for i in [1,2,3,4,5]
+                    li Sanción s
+
+
             div.fieldsetgroup.encabezado 
                 div.fieldset.fielset_main
                     +field("rfc","RFC",item._source.rfc)
-                    +field("otros_nombres","otros_nombres",item._source.otros_nombres)
+                    +field("otros_nombres","Otros nombres",(item._source.otros_nombres.length > 0 ? item._source.otros_nombres.reduce((n,m)=>n+', '+m): ""))
                     +field("entidad_federativa","Entidad federativa",item._source.entidad_federativa)
-                
+                    +field("fecha_nacimiento","Fecha de nacimiento",fechaFormateada(item._source.fecha_nacimiento))
+                    +field("lugar_nacimiento","Lugar de nacimiento",item._source.lugar_nacimiento)
+                    +field("genero","Género",item._source.genero)
+                    +hfield("direcciones","Direcciones",item._source.direcciones ? item._source.direcciones.reduce((n,m)=>n+'<br> '+m) : "")
+                  
+            //- #{jp(item)}
             if item._source.sanciones
                     h2 Sanciones
                     each sancion in item._source.sanciones
                         div.fieldsetgroup
                             +field("numero_expediente","Expediente",sancion.numero_expediente)
                             +field("fecha_notificacion","Fecha de notificacion", fechaFormateada(fechaFormateada(sancion.fecha_notificacion)))
-                            +field("fecha_dof","Publicado en DOF",fechaFormateada(sancion.fecha_dof))
+                            +field("fecha_sancion","Publicado en DOF",fechaFormateada(sancion.fecha_sancion))
                             +field("fuente","Autoridad sancionadora",sancion.fuente)
                             +hfield("causa main_field","Causa de la sanción",sancion.causa)
                             +field("periodo_inhabilitacion","Duración de la inhabilitación",sancion.periodo_inhabilitacion)
@@ -76,23 +87,21 @@ mixin hfield(id,title,value,highlight)
                             +field("monto_multa","monto_multa",sancion.monto_multa)
                             //- +field("objeto_social","Objeto social",sancion.objeto_social)
                             +hfield("leyes_infringidas","Leyes infringidas",sancion.leyes_infringidas)
+                            +hfield("programa","Programa",sancion.programa)
 
                             //- +field("telefono","Teléfono de la empresa",sancion.telefono)
 
 
 
-
-
-
                             if (sancion.fecha_publicacion_dof_definitivos)
                                 +hfield("numero_oficio_definitivos_dof","Oficio en el Diario Oficial de la Federación",sancion.numero_oficio_definitivos_dof)
-                                +field("fecha_publicacion_dof_definitivos","Publicación en DOF",fechaFormateada(sancion.fecha_publicacion_dof_definitivos))
+                                //- +field("fecha_publicacion_dof_definitivos","Publicación en DOF",fechaFormateada(sancion.fecha_publicacion_dof_definitivos))
 
                                 //- +field("numero_oficio_definitivos_sat","Oficio definitivo SAT",sancion.numero_oficio_definitivos_sat)
 
                                 //- +field("fecha_oficio_definitivos_sat","Fecha",fechaFormateada(sancion.fecha_oficio_definitivos_sat))
 
-                                +field("fecha_publicacion_sat_definitivos","Publicación SAT",fechaFormateada(sancion.fecha_publicacion_sat_definitivos))
+                                +field("fecha_publicacion_sat_definitivos","Publicado originalmente por el SAT",fechaFormateada(sancion.fecha_publicacion_sat_definitivos))
 
 
                                 //- +field("fecha_oficio_definitivos_dof","Fecha oficio DOF (repetido?)",fechaFormateada(sancion.fecha_oficio_definitivos_dof))
@@ -120,3 +129,5 @@ mixin hfield(id,title,value,highlight)
 
 
     +footer()
+
+

@@ -318,6 +318,8 @@ fieldset {
     font-family:PoppinsMedium;
     
 }
+
+.buscador select,
 .buscador input {
     width: 20em;
 }
@@ -378,6 +380,16 @@ fieldset {
         font-size:18px;
     }
 
+@media screen and (max-width: 800px) {
+
+    .buscador select,
+    .buscador input {
+        width: 100%;
+    }    
+    .rfc {
+        display: inline-block;
+    }
+}
 
 /* ITEM */
 
