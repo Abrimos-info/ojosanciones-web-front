@@ -23,11 +23,11 @@ include head.pug
 
             div.statWrapper
                 div.stat
-                    div.statNumber #{num(stats.sfp_count)}
-                    div.statText Proveedores inhabilitados por la SFP.
-                div.stat
                     div.statNumber #{num(stats.sat_efos_count)}
                     div.statText Contribuyentes con operaciones presuntamente inexistentes según el SAT.
+                div.stat
+                    div.statNumber #{num(stats.sfp_count)}
+                    div.statText Proveedores inhabilitados por la SFP.
                 div.stat
                     div.statNumber #{num(stats.ofac_count)}
                     div.statText Empresas y personas en la lista OFAC de EUA.

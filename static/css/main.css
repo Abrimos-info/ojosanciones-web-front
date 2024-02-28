@@ -85,11 +85,12 @@ fieldset {
     margin-bottom: 1em;
     clear: both;
     overflow: auto;
-    background:#CC8485;
-    padding: 0 2em;
+    background:#936565;
+    padding: 4px 2em 0 2em;
     display:flex;
     justify-content: left;
     align-items: center;
+    margin-top: 5px;
 }
     .banner .icon {
         margin-right:10px;
@@ -99,7 +100,7 @@ fieldset {
         float:left;
     }
     .banner p {
-        color:#000;
+        color:white;
         font-family:PoppinsRegular;
         font-size:16px;
         line-height:18px;
@@ -116,7 +117,6 @@ fieldset {
 .menu li {
     display: inline-block;
     padding: 0.2em;
-    background: #CC8485;
     border-radius: 5px;
     margin: 1em;
 }
@@ -157,7 +157,7 @@ fieldset {
     text-align: center;
     padding: 2em;
     height: 286px;
-    border:solid 1px #AE7171;
+    border:solid 1px #640000;
     box-sizing:border-box;
     display:flex;
     align-items: center;
@@ -180,7 +180,6 @@ fieldset {
     .hometext p {
         font-family:PoppinsRegular;
         font-size:18px;
-        color:#AE7171;
     }
 
 .cardbox {
@@ -204,13 +203,13 @@ fieldset {
     }
     .cardTitle {
         font-family:PoppinsBold;
-        color:#AE7171;
+        color:#000000;
         text-align:center;
         font-size:25px;
         margin:25px 0;
     }
     .card p {
-        color:#AE7171;
+        color:#936565;
         font-family:PoppinsRegular;
         font-size:16px;
         line-height:18px;
@@ -277,7 +276,7 @@ fieldset {
     margin-top:50px;
     clear: both;
     font-family:PoppinsMedium;
-    color:#DC4C39;
+    color:#936565;
 }
     .estadisticas .statWrapper {
         display:flex;
@@ -288,6 +287,8 @@ fieldset {
         .estadisticas .stat {
             border-right: solid 1px #797979;
             width:33%;
+            padding: 1em;
+            box-sizing: border-box;
         }
             .estadisticas .stat:last-child { border:none }
             .estadisticas .stat .statNumber {
@@ -299,7 +300,7 @@ fieldset {
             .estadisticas .stat .statText {
                 text-align:center;
                 width:100%;
-                font-size:20px;
+                font-size:18px;
             }
     .estadisticas .bottomStat {
         font-family:PoppinsRegular;

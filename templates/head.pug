@@ -19,8 +19,13 @@ mixin head(title)
         body
             div.header
                 a(href="/")
-                    img(src="/static/img/ojosanciones-logo.png", alt="Ojo a las sanciones - sociedad.info").logo
+                    img(src="/static/img/ojosanciones-logo.png", alt="Ojo a las sanciones").logo
+                div(style="display:inline-block; color: #999; margin-left: 1em")
+                    p(style="font-size: 10px; line-height: 10px; margin-bottom: 2px;") con la tecnología de
+                    a(href="https://www.sociedad.info")
+                        img(src="/static/img/sociedadinfo-gris.png", alt="sociedad.info", style="width: 105px").logo
                 div.menu#mainMenu
+                    a.headerButton(href=baseurl) Inicio
                     a.headerButton(href=baseurl+"buscador") Búsqueda
                     a.headerButton(href=baseurl+"acerca-de") Acerca de
                     a.headerButton(href="https://donate.stripe.com/00g6pH9nn5OpgkU3cd", target="_blank") Donar
@@ -71,7 +76,7 @@ mixin footer()
         div.footerlogo
             p Ojo a las sanciones es un proyecto creado por
                 a(href="https://bit.ly/38AB3Zl")
-                    img(src="/static/img/+integridad.png" height="50")
+                    img(src="/static/img/+integridad-blanco.png" height="50")
                 | y
                 a(href="https://abrimos.info/")
                     img(src="/static/img/logo_abrimos.png" height="75")
