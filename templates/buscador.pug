@@ -44,10 +44,10 @@ include head.pug
                         when "sancion"
                             //- pre #{jp(elem)}
                             
-                            a(href="/mx/empresa/"+elem._source.rfc) #{elem._source.nombre_razon_social}
+                            a(href="/mx/empresa/"+elem._source.id) #{elem._source.nombre_razon_social}
                             if (elem._source.rfc)
                                 span.rfc   (RFC: #{elem._source.rfc})
-                            a(href="/mx/empresa/"+elem._source.rfc,  style="float: right").detailsButton Detalles
+                            a(href="/mx/empresa/"+elem._source.id,  style="float: right").detailsButton Detalles
                             p #{elem._source.sanciones.length}
                                 if (elem._source.sanciones.length > 1)
                                     span  sanciones.    
