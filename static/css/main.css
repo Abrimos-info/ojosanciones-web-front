@@ -49,7 +49,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 hr {
-    color: #797979;
+    color: #c0c0c0;
 }
 
 fieldset {
@@ -259,7 +259,7 @@ fieldset {
 
 .detailsButton,
 .cardFull .actionButton,
-.card .actionButton {
+.actionButton {
     border:none;
     padding:6px 15px;
     text-align: center;
@@ -435,13 +435,13 @@ fieldset {
 .fieldTitle {
     font-size: 12px;
     font-weight: normal;
-    color: #797979;
+    color: #666;
 }
 
 .fieldValue {
     font-size: 14px;
     color: #000;
-    background: #C0C0C0;
+    background: #ddd;
     display: inline-block;
     padding: 0 0.5em;
     border-radius: 5px;
@@ -475,17 +475,19 @@ fieldset {
 
 .actionBar {
     float: right;
-    border: 1px solid #000;
-    background-color: #AE7171;
+    background-color: #ddd;
     border-radius: 10px;
-    padding: 1em;
+    padding: 1.5em 2em;
     margin-left: 2em;
 }
 
+.actionBar h2 {
+    font-size: 1em;
+}
 .actionBar img,
 .actionBar a,
 .actionBar h2 {
-    color: white;
+    color: black;
     text-decoration: none;
     vertical-align: middle;
     display: inline-block;
@@ -517,28 +519,36 @@ table {
     border-spacing: 0;
 }
 
-table tr.field:nth-child(even) {
-    background: #e6eff6;
-}
-
-table td.fieldTitle {
-    padding: 5px;
-    width: 25%;
-}
-
-table td.fieldValue {
-    font-weight: bolder;
-    color: #2B2B2B;
-    padding: 5px;
-    width: 75%;
-}
-
-hr {
-    border-top: solid 2px #e6eff6;
-}
 
 .fieldValue em {
     background-color: yellow;
+}
+
+.semaforo {
+    width: 100%;
+    border-radius: 50px;
+    background: red;
+    height: 70px;
+    width: 70px;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    line-height: 70px;
+    position: absolute;
+    top: 50px;
+    display: inline-block;
+    margin-left: -35px;
+}
+.sancion {
+    position: relative;
+    height: 200px;
+    text-align: center;
+    flex: auto; 
+    padding: 1em;
+}
+
+.semaforo.check {
+    background: green;
 }
 
 /* RESULTS */
@@ -588,7 +598,7 @@ hr {
 .footer {
     margin-top:30px;
     clear: both;
-    background:#797979;
+    background:#640000;
     min-height:80px;
     padding-bottom: 2em;
     display:flex;
@@ -627,7 +637,7 @@ hr {
     }
 
 
-@media screen and (max-width: 970px) {
+@media screen and (max-width: 1080px) {
     .banner { padding: 0 0.5em }
     .infobanner_gob {
         background-position: center top;
@@ -644,22 +654,28 @@ hr {
         font-size: 11px;
         text-align: center;
     }
-    #mainMenuHandle.open {
-        opacity: 0.5;
-        transition: opacity 0.5s ease-in-out;
+    #mainMenuHandle.open .headerButton {
+        background-color: #640000;
+        border-radius: 5px 5px 0 0;
     }
     #mainMenu { 
         position: absolute;
         right: 0;
         width: 200px;
-        background-color: #c0c0d0;
-        margin-top: -20px;
+        border-radius: 5px;
+        background-color: #640000;
+        margin-top: -25px;
         text-align: center;
     }
     .headerButton {
         position: static;
         margin: 1em;
     }
+    #mainMenu .headerButton {
+            margin: 2px;
+            width: calc(100% - 4px);
+            box-sizing: border-box;    
+        }
     .hometext { padding: 0 }
     .estadisticas .stat {
         width:100%;

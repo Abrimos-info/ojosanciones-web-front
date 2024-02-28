@@ -41,51 +41,8 @@ include head.pug
             each elem,i in results
                 div.result
                     case filters.type.value
-                        when "area"
-                            p !{j(elem)}
-                                a(href="/"+elem._source.country+"/area/"+elem._source.id) detalles
-
-
-                            //- p
-                            //-     a(href="/contract/"+elem._source.nog_concurso)
-                            //-         if (elem.highlight && elem.highlight.descripcion)
-                            //-             | !{elem.highlight.descripcion}
-                            //-         else
-                            //-             | !{elem._source.descripcion}
-                            //- if (elem._source.estatus_concurso == "Adjudicado" || elem._source.estatus_concurso == "Terminado adjudicado")
-
-                            //-     p Adjudicado por !{elem._source.entidad_compradora} a&nbsp;
-                            //-         if (elem.highlight && elem.highlight.nombre)
-                            //-             | !{elem.highlight.nombre}
-                            //-         else
-                            //-             | !{elem._source.nombre}
-                            //-         | &nbsp;el !{fechaFormateada(elem._source.fecha_adjudicacion)} por&nbsp;
-                            //-         strong !{num(elem._source.monto,"Q.")}
-                            //- else
-                            //-     p Estatus: !{elem._source.estatus_concurso}
-
-
-                        when "person"
-                            p !{j(elem)}
-                                a(href="/"+elem._source.country+"/person/"+elem._source.id) detalles
-                            //- if elem._source.nombre_persona
-                            //-     a(href="/proveedor/"+elem._source.nit)  #{elem._source.nombre_persona}
-                            //- else
-                            //-     a(href="/proveedor/"+elem._source.nit)  #{elem._source.nombre_razon_social}
-
-
-                            //- span  (#{elem._source.tipo_organizacion}, NIT #{elem._source.nit})
-
-                            //- each nom in elem._source.nombres_comerciales
-                            //-     p nombres_comerciales #{nom}
-                        when "party"
-                            p !{j(elem)}
-                                a(href="/"+elem._source.country+"/party/"+elem._source.id) detalles
-                        when "contest"
-                            p !{j(elem)}
-                                a(href="/"+elem._source.country+"/contest/"+elem._source.id) detalles
-                            //- a(href="/entidad/"+elem.key)  #{elem.key}
                         when "sancion"
+                            //- pre #{jp(elem)}
                             
                             a(href="/mx/empresa/"+elem._source.rfc) #{elem._source.nombre_razon_social}
                             if (elem._source.rfc)
