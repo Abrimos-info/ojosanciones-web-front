@@ -57,6 +57,7 @@ fieldset {
     padding: 0 0.75rem;
 }
 
+
 .wrapper {
     background: white;
     padding: 1em;
@@ -549,6 +550,13 @@ table {
 
 .semaforo.check {
     background: green;
+}
+.semaforo.nd {
+    background: #666;
+}
+
+.semaforoLink {
+    margin-top: 100px;
 }
 
 /* RESULTS */
