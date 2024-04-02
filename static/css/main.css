@@ -253,10 +253,11 @@ fieldset {
         margin: 1% 0;
     }
 
-    .cardFull {
-        width: 100%;
-    }
 
+}
+
+.cardFull {
+    width: 100%;
 }
 
 .card form {
@@ -654,10 +655,11 @@ table {
     .banner { padding: 0 0.5em }
     .infobanner_gob {
         background-position: center top;
+        background-size: 250px;
         /* background: #cccacb url("../img/homeillustration.png") center top no-repeat;
         background-size: contain; */
         height: auto;
-        padding-top: 250px;
+        padding-top: 150px;
     }
     .infobanner_info {
         width: auto;
