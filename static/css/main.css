@@ -100,12 +100,17 @@ fieldset {
     .banner .text {
         float:left;
     }
+    .banner a {
+        font-weight: bold;
+    }
+    .banner a,
     .banner p {
         color:white;
         font-family:PoppinsRegular;
         font-size:16px;
         line-height:18px;
     }
+
 
 .menu {
     list-style: none;
@@ -153,7 +158,7 @@ fieldset {
 /* HOME */
 .infobanner_gob {
     background: #dae9f8  right center no-repeat;
-    background-image: url("../img/homeillustration1.png");
+    background-image: url("../img/homeillustration2.webp");
     background-size: contain;
     text-align: center;
     padding: 2em;
