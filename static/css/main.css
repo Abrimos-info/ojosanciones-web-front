@@ -1,18 +1,10 @@
 @font-face {
-    font-family: 'PoppinsBlack';
-    src: url('../fonts/Poppins-Black.otf') format('opentype');
-}
-@font-face {
     font-family: 'PoppinsBold';
     src: url('../fonts/Poppins-Bold.otf') format('opentype');
 }
 @font-face {
     font-family: 'PoppinsMedium';
     src: url('../fonts/Poppins-Medium.otf') format('opentype');
-}
-@font-face {
-    font-family: 'PromptRegular';
-    src: url('../fonts/Prompt-Regular.ttf') format('truetype');
 }
 @font-face {
     font-family: 'PoppinsRegular';
@@ -55,6 +47,160 @@ hr {
 fieldset {
     border: 0;
     padding: 0 0.75rem;
+}
+
+
+
+/* Type=Primary, State=Default, Size=Large */
+.iconButton {
+
+    display: inline-flex;
+    padding: 11px 13px;
+    
+    background: #7800E0;
+    border-radius: 120px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 24px;;
+    line-height: 24px;
+    margin-left: 10px;
+    position: relative;
+    top: 3px;
+}
+
+
+/* Type=Primary, State=Hover, Size=Large */
+.iconButton:hover {
+    background: #AA5CEC;
+}
+
+/* Type=Primary, State=Pressed, Size=Large */
+.iconButton.active,
+.iconButton:active {
+    background: #4D0092;
+}
+
+/* Type=Primary, State=Disabled, Size=Large */
+.iconButton.disabled,
+.iconButton:disabled {
+    background: #F2F2F3;
+    cursor: not-allowed;
+}
+
+/* Type=Primary, State=Default, Size=Large */
+.primaryButtonLarge {
+
+    display: inline-flex;
+    padding: 16px 24px;
+    
+    background: #7800E0;
+    border-radius: 16px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+}
+
+
+/* Type=Primary, State=Hover, Size=Large */
+.primaryButtonLarge:hover {
+    background: #AA5CEC;
+}
+
+/* Type=Primary, State=Pressed, Size=Large */
+.primaryButtonLarge.active,
+.primaryButtonLarge:active {
+    background: #4D0092;
+}
+
+/* Type=Primary, State=Disabled, Size=Large */
+.primaryButtonLarge.disabled,
+.primaryButtonLarge:disabled {
+    background: #F2F2F3;
+    cursor: not-allowed;
+}
+
+
+/* Type=Secondary, State=Default, Size=Large */
+.secondaryButtonLarge {
+
+
+    box-sizing: border-box;
+
+    /* Auto layout */
+    display: flex;
+    padding: 16px 24px;
+
+    background: #FFFFFF;
+    border: 1.5px solid #DC4C39;
+    color: #661d13;
+    border-radius: 16px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    text-decoration: none;
+    justify-content: center;
+
+    
+}
+
+/* Type=Secondary, State=Hover, Size=Large */
+.secondaryButtonLarge:hover {
+    background: #caabab;
+    border: 1.5px solid #0D0C0D;
+    color: #0D0C0D;
+}
+
+/* Type=Secondary, State=Pressed, Size=Large */
+
+.secondaryButtonLarge:active,
+.secondaryButtonLarge.active {
+    background: #AA5CEC;
+    border: 1.5px solid #0D0C0D;
+    color: #0D0C0D;
+}
+
+
+/* Type=Secondary, State=Disabled, Size=Large */
+.secondaryButtonLarge:disabled,
+.secondaryButtonLarge.disabled {
+    border: 1.5px solid #9F9FA1;
+    color: #9F9FA1;
+    background-color: #fff;
+}
+
+
+.tertiaryButtonLarge {
+    padding: 16px;
+    color: #1E1E1E;
+    text-decoration: underline;
+    cursor: pointer;
+
+}
+
+
+
+/* Type=Tertiary, State=Pressed, Size=Large */
+.tertiaryButtonLarge:hover {
+    color: #7800E0;
+}
+
+/* Type=Tertiary, State=Pressed, Size=Large */
+.tertiaryButtonLarge:active,
+.tertiaryButtonLarge.active {
+    color: #AA5CEC;
+}
+/* Type=Tertiary, State=Disabled, Size=Large */
+.tertiaryButtonLarge:disabled,
+.tertiaryButtonLarge.disabled {
+    color: #9F9FA1;
+    cursor: not-allowed;
+
 }
 
 
@@ -482,23 +628,12 @@ fieldset {
 
 .actionBar {
     float: right;
-    background-color: #ddd;
-    border-radius: 10px;
-    padding: 1.5em 2em;
-    margin-left: 2em;
+    margin: 2em;
 }
 
 .actionBar h2 {
-    font-size: 1em;
-}
-.actionBar img,
-.actionBar a,
-.actionBar h2 {
-    color: black;
-    text-decoration: none;
-    vertical-align: middle;
-    display: inline-block;
-    padding: 2px;
+    font-size: 10px;
+    font-weight: normal;
 }
 
 .actionBar ul,
@@ -507,10 +642,26 @@ fieldset {
     padding: 0;
     margin: 0;
 }
+.actionBar .secondaryButtonLarge {
+    width: 50px;
+    height: 50px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-width: 2px;
+}
+.actionBar .secondaryButtonLarge i {
+    font-size: 16px;
+}
+.actionBar .secondaryButtonLarge span {
+    font-size: 8px;
+    line-height: 8px;;
+}
 
 @media screen and (max-width: 800px) {
     .actionBar {
-        float: none;
+        margin: 0.5em;
     }
 }
 
@@ -546,6 +697,12 @@ table {
     display: inline-block;
     margin-left: -35px;
 }
+
+.sanciones {
+    flex-flow: row wrap;
+    display: flex;
+}
+
 .sancion {
     position: relative;
     height: 200px;

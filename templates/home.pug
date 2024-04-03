@@ -27,14 +27,15 @@ include head.pug
                     div.statText Contribuyentes con operaciones presuntamente inexistentes según el SAT.
                 div.stat
                     div.statNumber #{num(stats.sfp_count)}
-                    div.statText Proveedores inhabilitados por la SFP.
+                    div.statText Proveedores sancionados por la Secretaría de la Función Pública (SFP)
                 div.stat
                     div.statNumber #{num(stats.ofac_count)}
-                    div.statText Empresas y personas en la lista OFAC de EUA.
+                    div.statText Empresas y personas en la lista OFAC de EUA*.
 
         div.hometext#razon
-            p Ojo a las Sanciones es un mecanismo de datos abiertos que permite buscar si una empresa se encuentra inhabilitada, ha sido identificada como empresa con actividades irregulares por el SAT (“fantasma“ o “EFOS”) o si se encuentra en la lista OFAC del Departamento del Tesoro de EUA.
-            a(href="/acercade") Más información
+            p Ojo a las Sanciones es un mecanismo de datos abiertos que permite buscar si una empresa se encuentra inhabilitada, ha sido identificada como empresa con actividades irregulares por el SAT  (Empresas que Facturan Operaciones Simuladas o “EFOS”). o si se encuentra en la lista OFAC del Departamento del Tesoro de EUA. 
+            p * Las condiciones de la categoría otorgada por la OFAC no reflejan la jurisprudencia en otros países.
+            a(href="/acerca-de") Más información
 
         //- div.estadisticas
         //-     h2.cardTitle Mapas con análisis de datos

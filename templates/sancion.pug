@@ -51,30 +51,21 @@ mixin fuente_link(tipo,rfc)
 if (!item._source)
     return false
 
+
 +head("Ojo a las sanciones - "+item._source.nombre_razon_social)
     div.wrapper
+        //- +buscador(filters)
 
-        div.actionBar
-            h2 Acciones
-            ul
-                li 
-                    a.whatsapp(href="whatsapp://send?text="+enc("Por favor revisa estas sanciones https://ojosanciones.sociedad.info/mx/empresa/" + item._source.rfc + "")) 
-                        | Compartir
-                li 
-                    a.telegram(href="https://t.me/share/url?url="+enc("Por favor revisa estas sanciones https://ojosanciones.sociedad.info/mx/empresa/" + item._source.rfc + ""))
-                        | Compartir
-                li 
-                    a(href=item._source.archivo_adjunto) Descargar
-                //- li 
-                //-     a(href="/alertas") Crear alerta
-                //- li 
-                //-     a(href="/alertas") Solicitar investigación
-                //- li 
-                //-     a(href="/alertas") Reclamar
+        +actionBar(item._source.rfc)
 
         div.itemContents
             div.fieldsetgroup.titulo
-                h1 Sanciones a #{item._source.nombre_razon_social}
+                
+                h1
+                    span.resultIcon Sanciones a 
+                    span.itemName #{item._source.nombre_razon_social}
+
+
 
             div.fieldsetgroup.encabezado 
                 div.fieldset.fielset_main
@@ -86,7 +77,7 @@ if (!item._source)
                     +field("genero","Género",item._source.genero)
                     +hfield("direcciones","Direcciones",item._source.direcciones ? item._source.direcciones.reduce((n,m)=>n+'<br> '+m) : "")
                   
-            div.sanciones(style="display: flex")
+            div.sanciones
                 each tipo in ["sat-efos","ofac", "sfp", "sat2", "algo"]
                     div.sancion
                         h2 

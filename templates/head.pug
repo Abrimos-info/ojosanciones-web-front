@@ -124,3 +124,21 @@ mixin buscador
                                             else
                                                 option(value=option.value) !{option.label}
                 button(type="submit").primaryButtonLarge Buscar
+
+
+mixin actionBar(id)
+    div.actionBar
+        h2 Acciones
+        ul
+            li 
+                a.secondaryButtonLarge(href="whatsapp://send?text="+enc("Por favor revisa estas sanciones https://ojosanciones.sociedad.info/mx/empresa/" + id + "")) 
+                    i.fi.fi-brands-whatsapp
+                    span Compartir
+            li 
+                a.secondaryButtonLarge(href="https://t.me/share/url?url="+enc("Por favor revisa estas sanciones https://ojosanciones.sociedad.info/mx/empresa/" + id + ""))
+                    i.fi.fi-brands-telegram
+                    span Compartir
+            li 
+                a.secondaryButtonLarge(href="/datos")
+                    i.fi.fi-rr-download
+                    span Descargar

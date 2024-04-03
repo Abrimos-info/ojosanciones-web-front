@@ -2,27 +2,7 @@ include head.pug
 +head("Ojo a las sanciones - Buscador")
 
     div.wrapper
-        div.buscador
-            form(action="/buscador")
-                fieldset
-                    each filter,id in filters
-                        case filter.type
-                            
-                            when "exact-string"
-                            when "text"
-                                div(style="display: inline-block")
-                                    label(for=id) !{filter.label}
-                                    input(type="text", name=id, id=id, value=filter.value, placeholder=filter.prompt)
-                            when "select"
-                                div(style="display: inline-block")
-                                    label(for=id) !{filter.label}
-                                    select(name=id, title=filter.prompt)
-                                        for option in filter.options
-                                            if (filter.value==option.value)
-                                                option(selected="selected",value=option.value) !{option.label}
-                                            else
-                                                option(value=option.value) !{option.label}
-                    button(type="submit").actionButton Buscar
+        +buscador(filters)
 
 
         div.pageTitle
