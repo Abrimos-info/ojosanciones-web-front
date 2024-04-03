@@ -34,6 +34,8 @@ mixin head(title)
                 | gtag('config', 'G-1NVCF83HZR');
 
         body
+            link(rel="stylesheet", href="/static/css/flaticons/css/brands/all.css")
+            link(rel="stylesheet", href="/static/css/flaticons/css/regular/all.css")
             div.header
                 a(href="/")
                     img(src="/static/img/ojosanciones-logo.png", alt="Ojo a las sanciones").logo
@@ -49,8 +51,8 @@ mixin head(title)
                 div.menu#mainMenuHandle
                     a.headerButton MENÚ
             div.banner
-                div.icon
-                    img(src="/static/img/warning.png", width="40")
+                div.iconButton
+                    i.fi.fi-rr-triangle-warning
                 div.text
                     p IMPORTANTE: Esta es una web en proceso de desarollo, 
                         a(href="http://") por favor ayudanos respondiendo esta encuesta 
@@ -89,8 +91,8 @@ mixin footer()
             a(href="mailto:ojosancionesmx@gmail.com") ojosancionesmx@gmail.com
     div.footer
         div.footersocial
-            a(href="https://twitter.com/ojosancionesmx", target="_blank")
-                img(src="/static/img/twitter.png").twitter
+            a.iconButton(href="https://twitter.com/ojosancionesmx", target="_blank")
+                i.fi.fi-brands-twitter
         div.footerlogo
             p Ojo a las sanciones es un proyecto creado por
                 a(href="https://bit.ly/38AB3Zl")

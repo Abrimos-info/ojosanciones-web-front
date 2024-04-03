@@ -13,7 +13,7 @@
 
 /* Global */
 body {
-    font-family: Figtree, sans-serif;
+    font-family: PoppinsRegular, sans-serif;
     letter-spacing: 0.005em;
     margin: 0;
 }
@@ -57,9 +57,10 @@ fieldset {
     display: inline-flex;
     padding: 11px 13px;
     
-    background: #7800E0;
+    background: white;
+    color: #640000;
     border-radius: 120px;
-    color: white;
+    /* color: white; */
     cursor: pointer;
     text-decoration: none;
     font-size: 24px;;
@@ -67,6 +68,7 @@ fieldset {
     margin-left: 10px;
     position: relative;
     top: 3px;
+    margin-right: 10px;
 }
 
 
@@ -239,9 +241,15 @@ fieldset {
     align-items: center;
     margin-top: 5px;
 }
-    .banner .icon {
+    .banner .iconButton {
         margin-right:10px;
         float:left;
+        margin-top: -9px;
+        border: 2px solid white;
+        background: transparent;
+        color: #ffefaa;
+        padding: 7px;
+        border-radius: 100px;
     }
     .banner .text {
         float:left;
@@ -691,7 +699,7 @@ table {
     text-align: center;
     color: white;
     font-size: 50px;
-    line-height: 70px;
+    line-height: 85px;
     position: absolute;
     top: 50px;
     display: inline-block;
@@ -799,7 +807,7 @@ table {
 }
     .footer a {
         text-decoration:none;
-        color:#E6AA3A;
+        color:#640000;
         font-weight:bold;
     }
     .twitter {

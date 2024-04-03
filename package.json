@@ -18,6 +18,7 @@
   "homepage": "https://ojosanciones.sociedad.info",
   "dependencies": {
     "@elastic/elasticsearch": "^8.10.0",
+    "@flaticon/flaticon-uicons": "^3.1.0",
     "@wix/data": "^1.0.53",
     "@wix/members": "^1.0.38",
     "@wix/sdk": "^1.5.5",

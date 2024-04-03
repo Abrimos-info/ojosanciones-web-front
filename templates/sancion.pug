@@ -85,7 +85,8 @@ if (!item._source)
                         //- p #{j(item.aggs.tipo_sancion)}
                         if (item.aggs.tipo_sancion[tipo])
                             p SI
-                            p.semaforo.check(title="Sanción "+tipo)  &check;
+                            p.semaforo.check(title="Sanción "+tipo)
+                                i.fi.fi-rr-check
                             p.semaforoLink
                                 a(href="#"+tipo) Detalles 
                         else
@@ -93,12 +94,14 @@ if (!item._source)
                                 when "sat2"
                                 when "algo"
                                     p ND
-                                    p.semaforo.nd(title="No disponible")  -
+                                    p.semaforo.nd(title="No disponible (no se evaluó)")
+                                        i.fi.fi-rr-minus-small
                                     p.semaforoLink
                                         a(href="https://donate.stripe.com/00g6pH9nn5OpgkU3cd") Donar
                                 default
                                     p NO
-                                    p.semaforo.cross(title="No listada") &#9938;
+                                    p.semaforo.cross(title="No listada (sin sanción)")
+                                        i.fi.fi-rr-cross-small
 
             //- #{jp(item)}
             div 
@@ -126,7 +129,10 @@ if (!item._source)
                             +hfield("leyes_infringidas","Leyes infringidas",sancion.leyes_infringidas)
                             +hfield("programa","Programa",sancion.programa)
                             +field("numero_expediente","Expediente",sancion.numero_expediente)
-                            +field("fecha_sancion","Publicado en DOF",fechaFormateada(sancion.fecha_sancion))
+                            if sancion.fuente == "ofac"
+                                +field("fecha_sancion","Información actualizada el",fechaFormateada(sancion.fecha_sancion))
+                            else 
+                                +field("fecha_sancion","Publicado en DOF",fechaFormateada(sancion.fecha_sancion))
                             +field("fecha_notificacion","Fecha de notificacion", fechaFormateada(fechaFormateada(sancion.fecha_notificacion)))
                             +field("fuente","Autoridad sancionadora",sancion.fuente)
                             +field("periodo_inhabilitacion","Duración de la inhabilitación",sancion.periodo_inhabilitacion)
