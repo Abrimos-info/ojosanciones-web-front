@@ -28,7 +28,9 @@ mixin fuente_nombre(tipo)
         when "sfp"
             | Inhabilitada 
         when "ofac"
-            | OFAC
+            span OFAC 
+                i.fi.fi-rr-info(title="Las condiciones de la categoría otorgada por la OFAC no reflejan la jurisprudencia en otros países.")
+
         when "sat2"
             | Deudora de impuestos
         when "algo"
