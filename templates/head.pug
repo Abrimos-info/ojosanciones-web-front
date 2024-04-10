@@ -33,29 +33,40 @@ mixin head(title)
 
                 | gtag('config', 'G-1NVCF83HZR');
 
+            //- Hotjar Tracking Code for ojosanciones
+            script
+                | (function(h,o,t,j,a,r){
+                |     h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                |     h._hjSettings={hjid:4938623,hjsv:6};
+                |     a=o.getElementsByTagName('head')[0];
+                |     r=o.createElement('script');r.async=1;
+                |     r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                |     a.appendChild(r);
+                | })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
         body
             link(rel="stylesheet", href="/static/css/flaticons/css/brands/all.css")
             link(rel="stylesheet", href="/static/css/flaticons/css/regular/all.css")
             div.header
                 a(href="/")
                     img(src="/static/img/ojosanciones-logo.png", alt="Ojo a las sanciones").logo
-                div(style="display:inline-block; color: #999; margin-left: 1em")
-                    p(style="font-size: 10px; line-height: 10px; margin-bottom: 2px;") con la tecnología de
+                div.poweredBy
+                    p con la tecnología de
                     a(href="https://www.sociedad.info")
-                        img(src="/static/img/sociedadinfo-gris.png", alt="sociedad.info", style="width: 105px").logo
+                        img(src="/static/img/sociedadinfo-gris.png", alt="sociedad.info").logo
                 div.menu#mainMenu
                     a.headerButton(href=baseurl) Inicio
                     a.headerButton(href=baseurl+"buscador") Búsqueda
                     a.headerButton(href=baseurl+"acerca-de") Acerca de
                     a.headerButton(href="https://donate.stripe.com/00g6pH9nn5OpgkU3cd", target="_blank") Donar
                 div.menu#mainMenuHandle
-                    a.headerButton MENÚ
+                    a.headerButton(title="Menú")
+                        i.fi.fi-rr-menu-burger
             div.banner
                 div.iconButton
                     i.fi.fi-rr-triangle-warning
                 div.text
-                    p IMPORTANTE: Esta es una web en proceso de desarollo, 
-                        a(href="http://") por favor ayudanos respondiendo esta encuesta 
+                    p IMPORTANTE: Esta es una web en proceso de desarollo. 
             script 
                 | function checkWidth() {
                 |    if (window.innerWidth < 1080) { 

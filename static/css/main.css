@@ -230,6 +230,23 @@ fieldset {
 .header .menu {
     float: right;
 }
+
+
+.poweredBy {
+    display:inline-block; 
+    color: #999; 
+    margin-left: 1em;
+}
+
+.poweredBy p {
+    font-size: 10px; 
+    line-height: 10px; 
+    margin-bottom: 2px;
+}
+
+.poweredBy .logo {
+    width: 105px
+}
 .banner {
     margin-bottom: 1em;
     clear: both;
@@ -875,7 +892,39 @@ table {
         width: 150px;
         margin-top: 15px;
     }
+    .header {
+        padding: 0 1em;
+    }
+    .poweredBy .logo {
+        width: 90px;
+        margin-top: 5px;
+    }
+    .cardTitle,
+    .infobanner_gob h1 {
+        font-size: 1.5em;
+    }
 }
+
+@media screen and (max-width: 420px) {
+    .cardTitle,
+    .infobanner_gob h1 {
+        font-size: 1.2em;
+    }
+    .header {
+        padding: 0 0.5em;
+    }
+    .logo {
+        width: 120px;
+    }
+    .poweredBy p {
+        font-size: 6px;
+    }
+    .poweredBy .logo {
+        width: 60px;
+        margin-top: 2px;
+    }
+}
+
 
 
 /* ABUT */
