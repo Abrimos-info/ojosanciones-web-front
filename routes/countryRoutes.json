@@ -1,0 +1,13 @@
+{
+    "meta": {
+        "site": "ojosanciones"
+    },
+    "": {
+        "viewType": "function",
+        "viewName": "homePage"
+    },
+    "empresa": {
+        "viewType": "function",
+        "viewName": "empresaPage"
+    }
+}

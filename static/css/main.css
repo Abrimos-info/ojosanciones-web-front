@@ -668,8 +668,8 @@ fieldset {
     margin: 0;
 }
 .actionBar .secondaryButtonLarge {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
@@ -677,17 +677,31 @@ fieldset {
     border-width: 2px;
 }
 .actionBar .secondaryButtonLarge i {
-    font-size: 16px;
+    font-size: 24px;
 }
 .actionBar .secondaryButtonLarge span {
-    font-size: 8px;
-    line-height: 8px;;
+    font-size: 11px;
+    line-height: 11px;;
 }
 
 @media screen and (max-width: 800px) {
     .actionBar {
         margin: 0.5em;
     }
+
+    .actionBar .secondaryButtonLarge {
+        width: 50px;
+        height: 50px;
+    }    
+
+    .actionBar .secondaryButtonLarge i {
+        font-size: 16px;
+    }
+    .actionBar .secondaryButtonLarge span {
+        font-size: 8px;
+        line-height: 8px;;
+    }
+    
 }
 
 .itemContents {

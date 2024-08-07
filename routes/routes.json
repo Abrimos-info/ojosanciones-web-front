@@ -1,0 +1,38 @@
+{
+    "meta": {
+        "site": "ojosanciones"
+    },
+    "": {
+        "viewType": "function",
+        "viewName": "homePage"
+    },
+    "static": {
+        "viewType": "function",
+        "viewName": "sendStatic"
+    },
+    
+    "default": {
+        "viewType": "function",
+        "viewName": "errorPage"
+    },
+    
+    "buscador": {
+        "viewType": "function",
+        "viewName": "buscadorPage"
+    },
+    
+    "mx":{
+        "viewType": "country"
+    },
+    
+    "acerca-de": {
+        "viewType": "static",
+        "viewName": "acercade"
+    },
+    
+    "datos": {
+        "viewType": "static",
+        "viewName": "datos"
+    }
+
+}
