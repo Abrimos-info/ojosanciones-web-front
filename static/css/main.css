@@ -729,10 +729,10 @@ table {
     width: 70px;
     text-align: center;
     color: white;
-    font-size: 50px;
+    font-size: 70px;
     line-height: 85px;
     position: absolute;
-    top: 50px;
+    top: 35px;
     display: inline-block;
     margin-left: -35px;
 }

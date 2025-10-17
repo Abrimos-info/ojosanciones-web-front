@@ -54,13 +54,17 @@ if (!item._source)
     return false
 
 
-+head("Ojo a las sanciones - "+item._source.nombre_razon_social)
++head("Ojo a las sanciones - "+item._source.nombre_razon_social,"Sanciones a "+item._source.nombre_razon_social+" en México")
     div.wrapper
         //- +buscador(filters)
 
         +actionBar(item._source.rfc)
 
         div.itemContents
+            // --- Nota as .tableHeader ---
+            div.tabHeader.disclaimer-highlight Los datos mostrados son de fuentes públicas y pueden contener errores. 
+                a(href="/aviso-legal") Aviso legal
+
             div.fieldsetgroup.titulo
                 
                 h1
@@ -176,6 +180,38 @@ if (!item._source)
                                 //- +field("responsable.telefono","Telefono",sancion.responsable.telefono)
                             p 
                                 +fuente_link(sancion.fuente,item._source.rfc)
+
+        // --- Source Information ---
+        if item._source.source
+            div.fieldsetgroup#itemSources
+                h2 Fuentes de información
+                if sourceDataset
+                    div.sourceInfo
+                        p Los datos mostrados son de fuentes públicas y pueden contener errores. 
+                            a(href="/aviso-legal") Ver aviso legal completo.
+                        
+                        // NEW: Add derivative notice if applicable
+                        if sourceDataset.isDerivative
+                            p.derivativeNotice
+                                | Este conjunto de datos es derivado de fuentes oficiales y ha sido procesado para facilitar su consulta.
+                        
+                        div.sourceHeader
+                            h3.sourceTitle #{sourceDataset.name}
+                            div.sourceMeta
+                                if sourceDataset.publisher
+                                    p.sourcePublisher Publicado por: #{sourceDataset.publisher}
+                                if sourceDataset.records_count
+                                    p.sourceStats 
+                                        strong Registros: 
+                                        | #{num(sourceDataset.records_count, null, 0)}
+                                if sourceDataset.first_update && sourceDataset.last_update
+                                    p.sourceDates 
+                                        strong Última actualización: 
+                                        | #{fechaFormateada(sourceDataset.last_update,req.lang)}
+                        div.buttonGroup
+                            a.pill.secondaryButtonSmall(href="/source/"+sourceDataset.baseId + "/country/" + sourceDataset.country_code) Ver detalles del conjunto de datos
+                else 
+                    p #{item._source.source}
 
     +footer()
 

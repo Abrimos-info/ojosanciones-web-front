@@ -33,6 +33,11 @@
     "datos": {
         "viewType": "static",
         "viewName": "datos"
+    },
+    
+    "aviso-legal": {
+        "viewType": "static",
+        "viewName": "avisolegal"
     }
 
 }

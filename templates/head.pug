@@ -1,38 +1,64 @@
-mixin head(title)
+mixin head(title, metadescription, image)
     doctype html
     html(lang="es")
         head
             meta(charset="UTF-8")
-            meta(name="viewport", content="width=device-width, initial-scale=1.0")
-            link(rel="stylesheet", href="/static/css/main.css")
-            link(rel="shortcut icon", href="/static/img/favicon-96.png", type="image/x-icon")
-            <link rel="apple-touch-icon" sizes="57x57" href="/static/img/favicon-96.png">
-            <link rel="apple-touch-icon" sizes="60x60" href="/static/img/favicon-96.png">
-            <link rel="apple-touch-icon" sizes="72x72" href="/static/img/favicon-96.png">
-            <link rel="apple-touch-icon" sizes="76x76" href="/static/img/favicon-96.png">
-            <link rel="apple-touch-icon" sizes="114x114" href="/static/img/favicon-96.png">
-            <link rel="apple-touch-icon" sizes="120x120" href="/static/img/favicon-96.png">
-            <link rel="apple-touch-icon" sizes="144x144" href="/static/img/favicon-96.png">
-            <link rel="apple-touch-icon" sizes="152x152" href="/static/img/favicon-96.png">
-            <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon-96.png">
-            <link rel="icon" type="image/png" sizes="192x192"  href="/static/img/favicon-96.png">
-            <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-96.png">
-            <link rel="icon" type="image/png" sizes="96x96" href="/static/img/favicon-96x96.png">
-            <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-96.png">
-            <link rel="manifest" href="/static/manifest.json">
-            <meta name="msapplication-TileColor" content="#ffffff">
-            <meta name="msapplication-TileImage" content="/static/img/favicon-96.png">
-            <meta name="theme-color" content="#ffffff">               
-            title #{title}
-
-            script(async,src="https://www.googletagmanager.com/gtag/js?id=G-1NVCF83HZR")
-            script
-                | window.dataLayer = window.dataLayer || [];
-                | function gtag(){dataLayer.push(arguments);}
-                | gtag('js', new Date());
-
-                | gtag('config', 'G-1NVCF83HZR');
-
+            meta(name="viewport" content="width=device-width, initial-scale=1.0")
+            
+            //- Security headers
+            meta(http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.hotjar.com/ https://script.hotjar.com/ https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://www.googletagmanager.com/ https://fonts.googleapis.com; img-src 'self' data: https: http:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://vc.hotjar.io https://www.google.com wss://ws.hotjar.com https://content.hotjar.io https://in.hotjar.com/ https://www.google-analytics.com https://analytics.google.com/ https://www.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self';")
+            meta(http-equiv="Cross-Origin-Opener-Policy" content="same-origin")
+            meta(http-equiv="X-Content-Type-Options" content="nosniff")
+            meta(http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin")
+            
+            //- Enhanced favicon support
+            link(rel="shortcut icon" href="/static/img/favicon-96.png" type="image/x-icon")
+            link(rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon-96.png")
+            link(rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-96.png")
+            link(rel="icon" type="image/png" sizes="192x192" href="/static/img/favicon-96.png")
+            link(rel="manifest" href="/static/manifest.json")
+            
+            //- SEO and social media meta tags
+            meta(property="og:title" content=title)
+            meta(property="og:site_name" content="Ojo a las sanciones")
+            meta(property="og:image" content=image || "/static/img/ojosanciones-logo.png")
+            meta(property="og:image:url" content=image || "/static/img/ojosanciones-logo.png")
+            meta(property="twitter:image" content=image || "/static/img/ojosanciones-logo.png")
+            meta(property="twitter:title" content=title)
+            meta(property="og:type" content="website")
+            meta(name="twitter:card" content="summary_large_image")
+            meta(property="twitter:domain" content="ojosanciones.sociedad.info")
+            meta(property="og:locale" content="es")
+            
+            if metadescription
+                meta(name="description" content=metadescription)
+                meta(property="og:description" content=metadescription)
+            
+            //- Performance optimizations
+            link(rel="preconnect" href="https://www.googletagmanager.com")
+            link(rel="preconnect" href="https://www.google-analytics.com")
+            link(rel="preconnect" href="https://static.hotjar.com")
+            link(rel="preconnect" href="https://script.hotjar.com")
+            
+            link(rel="preload" fetchpriority="high" as="style" href="/static/css/main.css")
+            link(rel="preload" fetchpriority="high" as="image" type="image/png" href="/static/img/ojosanciones-logo.png")
+            
+            if image
+                link(rel="preload" fetchpriority="high" as="image" href=image)
+            
+            meta(name="msapplication-TileColor" content="#ffffff")
+            meta(name="msapplication-TileImage" content="/static/img/favicon-96.png")
+            meta(name="theme-color" content="#ffffff")
+            
+            title= title.slice(0, 70)
+            
+            //- Enhanced Google Analytics
+            script(nonce="google-analytics").
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-1NVCF83HZR');
+            
             //- Hotjar Tracking Code for ojosanciones
             script
                 | (function(h,o,t,j,a,r){
@@ -45,28 +71,27 @@ mixin head(title)
                 | })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 
         body
-            link(rel="stylesheet", href="/static/css/flaticons/css/brands/all.css")
-            link(rel="stylesheet", href="/static/css/flaticons/css/regular/all.css")
-            div.header
+            //- Enhanced accessibility
+            header.header(role="banner")
                 a(href="/")
                     img(src="/static/img/ojosanciones-logo.png", alt="Ojo a las sanciones").logo
                 div.poweredBy
                     p con la tecnología de
                     a(href="https://www.sociedad.info")
                         img(src="/static/img/sociedadinfo-gris.png", alt="sociedad.info").logo
-                div.menu#mainMenu
+                nav.menu#mainMenu(role="navigation" aria-label="Menú principal")
                     a.headerButton(href=baseurl) Inicio
                     a.headerButton(href=baseurl+"buscador") Búsqueda
                     a.headerButton(href=baseurl+"acerca-de") Acerca de
                     a.headerButton(href="https://donate.stripe.com/00g6pH9nn5OpgkU3cd", target="_blank") Donar
-                div.menu#mainMenuHandle
-                    a.headerButton(title="Menú")
+                nav.menu#mainMenuHandle(role="navigation" aria-label="Menú móvil")
+                    button.headerButton(aria-label="Abrir menú" aria-expanded="false" aria-controls="mainMenu" title="Menú")
                         i.fi.fi-rr-menu-burger
             div.banner
                 div.iconButton
                     i.fi.fi-rr-triangle-warning
                 div.text
-                    p IMPORTANTE: Esta es una web en proceso de desarollo. 
+                    p IMPORTANTE: Esta es una web en proceso de desarrollo. 
             script 
                 | function checkWidth() {
                 |    if (window.innerWidth < 1080) { 
@@ -93,8 +118,87 @@ mixin head(title)
                 | window.addEventListener("resize",checkWidth);
                 | checkWidth();
                 | document.getElementById("mainMenuHandle").addEventListener("click",toggleMenu);
-            if block
-                block
+            
+            main(role="main")
+                if block
+                    block
+            
+            //- Structured Data
+            script(type="application/ld+json").
+              {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Inicio",
+                    "item": "https://ojosanciones.sociedad.info"
+                  }
+                ]
+              }
+            
+            //- Enhanced resource loading
+            noscript
+                link(rel="stylesheet" href="/static/css/main.css")
+            link(rel="stylesheet" href="/static/css/main.css")
+            link(rel="stylesheet" href="/static/css/flaticons/css/brands/all.css")
+            link(rel="stylesheet" href="/static/css/flaticons/css/regular/all.css")
+
+//- Screen reader only class for accessibility
+style.
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    
+    /* Disclaimer highlight styling */
+    .disclaimer-highlight {
+        background-color: #fff3cd !important;
+        border: 1px solid #ffeaa7 !important;
+        border-radius: 8px !important;
+        padding: 12px 16px !important;
+        margin: 16px 0 !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+        font-weight: 500 !important;
+        color: #856404 !important;
+    }
+    
+    .disclaimer-highlight a {
+        color: #0074d4 !important;
+        text-decoration: underline !important;
+        font-weight: 600 !important;
+    }
+    
+    .disclaimer-highlight a:hover {
+        color: #0056b3 !important;
+    }
+
+mixin get_type_icon(type, lang='es')
+    if type
+        case type
+            when "sancion"
+            when "sanction"
+                - var label = "Sanción"
+                span(title=label, aria-label=label, role="img") ⚠️
+            when "empresa"
+            when "company"
+                - var label = "Empresa"
+                span(title=label, aria-label=label, role="img") 🏢
+            when "entidad"
+            when "entity"
+                - var label = "Entidad"
+                span(title=label, aria-label=label, role="img") 🏛️
+            default
+                - var label = type || "unknown"
+                span(title=label, aria-label=label, role="img") 🗒️
 
 mixin footer()
     div.contact
@@ -114,44 +218,44 @@ mixin footer()
 
 
 mixin buscador
-    div.buscador
-        form(action="/buscador")
+    section.buscador(role="search", id="buscador", aria-label="Búsqueda de sanciones")
+        form(action="/buscador", method="get", aria-label="Formulario de búsqueda")
             fieldset
-                each filter,id in filters
+                legend.sr-only Configuración de búsqueda
+                each filter, id in filters
                     case filter.type
-                        
                         when "exact-string"
                         when "text"
                             div(style="display: inline-block")
                                 label(for=id) !{filter.label}
-                                i.fi.fi-rr-search
-                                input(type="text", name=id, id=id, value=filter.value, placeholder=filter.prompt)
+                                i.fi.fi-rr-search(aria-hidden="true")
+                                input(type="text", name=id, id=id, value=filter.value, placeholder=filter.prompt, aria-label=filter.label, aria-describedby=id + "-help")
                         when "select"
                             div(style="display: inline-block")
                                 label(for=id) !{filter.label}
-                                select(name=id, title=filter.prompt)
+                                select(name=id, id=id, title=filter.prompt, aria-label=filter.label, aria-describedby=id + "-help")
                                     for option in filter.options
                                         if (option.label)
                                             if (filter.value==option.value)
-                                                option(selected="selected",value=option.value) !{option.label}
+                                                option(selected="selected", value=option.value) !{option.label}
                                             else
                                                 option(value=option.value) !{option.label}
-                button(type="submit").primaryButtonLarge Buscar
+                button(type="submit", aria-label="Ejecutar búsqueda").primaryButtonLarge Buscar
 
 
 mixin actionBar(id)
-    div.actionBar
+    nav.actionBar(role="navigation", aria-label="Acciones disponibles")
         h2 Acciones
         ul
             li 
-                a.secondaryButtonLarge(href="whatsapp://send?text="+enc("Por favor revisa estas sanciones https://ojosanciones.sociedad.info/mx/empresa/" + id + "")) 
-                    i.fi.fi-brands-whatsapp
+                a.secondaryButtonLarge(href="whatsapp://send?text="+enc("Por favor revisa estas sanciones https://ojosanciones.sociedad.info/mx/empresa/" + id + ""), target="_blank", aria-label="Compartir por WhatsApp") 
+                    i.fi.fi-brands-whatsapp(aria-hidden="true")
                     span Compartir
             li 
-                a.secondaryButtonLarge(href="https://t.me/share/url?url="+enc("Por favor revisa estas sanciones https://ojosanciones.sociedad.info/mx/empresa/" + id + ""))
-                    i.fi.fi-brands-telegram
+                a.secondaryButtonLarge(href="https://t.me/share/url?url="+enc("Por favor revisa estas sanciones https://ojosanciones.sociedad.info/mx/empresa/" + id + ""), target="_blank", aria-label="Compartir por Telegram")
+                    i.fi.fi-brands-telegram(aria-hidden="true")
                     span Compartir
             li 
-                a.secondaryButtonLarge(href="/datos")
-                    i.fi.fi-rr-download
+                a.secondaryButtonLarge(href="/datos", aria-label="Descargar datos")
+                    i.fi.fi-rr-download(aria-hidden="true")
                     span Descargar

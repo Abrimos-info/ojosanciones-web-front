@@ -1,5 +1,5 @@
 include head.pug
-+head("Ojo a las sanciones - Buscador")
++head("Ojo a las sanciones - Buscador","Buscador de sanciones en México")
 
     div.wrapper
         +buscador(filters)
@@ -28,12 +28,18 @@ include head.pug
                             if (elem._source.rfc)
                                 span.rfc   (RFC: #{elem._source.rfc})
                             a(href="/mx/empresa/"+elem._source.id,  style="float: right").detailsButton Detalles
-                            p #{elem._source.sanciones.length}
-                                if (elem._source.sanciones.length > 1)
-                                    span  sanciones.    
-                                else 
-                                    span  sanción.
-                                span  Última sanción: #{fechaFormateada(elem._source.sanciones.sort((a,b)=>a.fecha_sancion<b.fecha_sancion)[0].fecha_sancion)}
+                            if (elem._source.sanciones && elem._source.sanciones.length > 0)
+                                p #{elem._source.sanciones.length}
+                                    if (elem._source.sanciones.length > 1)
+                                        span  sanciones.    
+                                    else 
+                                        span  sanción.
+                                    if (elem._source.sanciones[0] && elem._source.sanciones[0].fecha_sancion)
+                                        span  Última sanción: #{fechaFormateada(elem._source.sanciones.sort((a,b)=>a.fecha_sancion<b.fecha_sancion)[0].fecha_sancion)}
+                                    else if (elem._source.sanciones[0] && elem._source.sanciones[0].fecha)
+                                        span  Última sanción: #{fechaFormateada(elem._source.sanciones.sort((a,b)=>a.fecha<b.fecha)[0].fecha)}
+                            else
+                                p 0 sanciones.
 
 
                             //- span  (Cantidad total de contratos: #{num(elem.doc_count)})

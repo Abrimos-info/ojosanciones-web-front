@@ -1,0 +1,41 @@
+include head.pug
+
++head("Aviso Legal - Ojo a las sanciones", "Aviso legal y términos de uso de Ojo a las sanciones")
+    div.wrapper
+        div.itemContents
+            div.fieldsetgroup.titulo
+                h1 Aviso Legal
+                
+            div.fieldsetgroup
+                h2 Información General
+                p Este sitio web "Ojo a las sanciones" es un proyecto de transparencia que recopila y presenta información pública sobre sanciones administrativas en México.
+                
+                h2 Fuentes de Información
+                p Los datos mostrados en este sitio provienen de fuentes públicas oficiales, incluyendo:
+                ul
+                    li SAT-EFOS (Sistema de Empresas Fantasma)
+                    li SFP (Secretaría de la Función Pública)
+                    li OFAC (Office of Foreign Assets Control)
+                
+                h2 Limitaciones de Responsabilidad
+                p 
+                    strong Los datos mostrados son de fuentes públicas y pueden contener errores.
+                p Este sitio web no garantiza la exactitud, completitud o actualidad de la información presentada. Los usuarios deben verificar la información directamente con las fuentes oficiales antes de tomar decisiones basadas en estos datos.
+                
+                h2 Uso de la Información
+                p La información presentada en este sitio es únicamente para fines informativos y de transparencia. No debe ser utilizada como única fuente para decisiones comerciales, legales o de cualquier otra índole.
+                
+                h2 Propiedad Intelectual
+                p El diseño, estructura y funcionalidad de este sitio web son propiedad de los desarrolladores. Los datos públicos presentados mantienen su carácter de información pública según la legislación mexicana.
+                
+                h2 Contacto
+                p Para consultas sobre este aviso legal o el sitio web, puede contactarnos en:
+                p
+                    a(href="mailto:ojosancionesmx@gmail.com") ojosancionesmx@gmail.com
+                
+                h2 Actualizaciones
+                p Este aviso legal puede ser actualizado periódicamente. La fecha de la última actualización se indica al final de este documento.
+                
+                p.fecha-actualizacion Última actualización: #{new Date().toLocaleDateString('es-MX')}
+
+    +footer()
