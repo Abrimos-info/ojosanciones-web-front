@@ -7,35 +7,38 @@ include head.pug
                 h1 Aviso Legal
                 
             div.fieldsetgroup
-                h2 Información General
-                p Este sitio web "Ojo a las sanciones" es un proyecto de transparencia que recopila y presenta información pública sobre sanciones administrativas en México.
-                
-                h2 Fuentes de Información
-                p Los datos mostrados en este sitio provienen de fuentes públicas oficiales, incluyendo:
-                ul
-                    li SAT-EFOS (Sistema de Empresas Fantasma)
-                    li SFP (Secretaría de la Función Pública)
-                    li OFAC (Office of Foreign Assets Control)
-                
-                h2 Limitaciones de Responsabilidad
-                p 
-                    strong Los datos mostrados son de fuentes públicas y pueden contener errores.
-                p Este sitio web no garantiza la exactitud, completitud o actualidad de la información presentada. Los usuarios deben verificar la información directamente con las fuentes oficiales antes de tomar decisiones basadas en estos datos.
-                
-                h2 Uso de la Información
-                p La información presentada en este sitio es únicamente para fines informativos y de transparencia. No debe ser utilizada como única fuente para decisiones comerciales, legales o de cualquier otra índole.
-                
-                h2 Propiedad Intelectual
-                p El diseño, estructura y funcionalidad de este sitio web son propiedad de los desarrolladores. Los datos públicos presentados mantienen su carácter de información pública según la legislación mexicana.
-                
-                h2 Contacto
-                p Para consultas sobre este aviso legal o el sitio web, puede contactarnos en:
-                p
-                    a(href="mailto:ojosancionesmx@gmail.com") ojosancionesmx@gmail.com
-                
-                h2 Actualizaciones
-                p Este aviso legal puede ser actualizado periódicamente. La fecha de la última actualización se indica al final de este documento.
-                
-                p.fecha-actualizacion Última actualización: #{new Date().toLocaleDateString('es-MX')}
+                div.legal-content
+                    section.legal-section
+                        h2 1. Uso de la Información
+                        p La información proporcionada en nuestra página web se obtiene y presenta tal cual de fuentes de acceso público y tiene como objetivo principal facilitar el acceso a datos relacionados con contrataciones públicas.
+                        p Te recomendamos que siempre verifiques y confirmes la información proporcionada directamente en la página fuente.
+                        p El usuario acepta utilizar la información obtenida de nuestra plataforma únicamente con fines legales y éticos, y no para propósitos ilícitos, fraudulentos o que violen la privacidad de terceros.
+                        p No nos hacemos responsables por el uso indebido o ilegal que los usuarios puedan hacer de la información obtenida a través de nuestra plataforma.
+
+                    section.legal-section
+                        h2 2. Exactitud de la Información
+                        p Nos esforzamos por proporcionar información precisa y actualizada que obtenemos de las bases de datos públicas; sin embargo, no garantizamos la exactitud, integridad o actualidad de la información contenida en nuestra página web toda vez que dicha información es recopilada de fuentes oficiales.
+                        p Ojo a las Sanciones recopila la información más actualizada en la página de Internet del Servicio de Administración Tributaria, de acuerdo con lo dispuesto en el cuarto y sexto párrafo del artículo 69-B del Código Fiscal de la Federación, así como del directorio de proveedores y contratistas sancionados de acuerdo con la Ley de Responsabilidades Administrativas y la Ley de Adquisiciones, Arrendamientos y Servicios del Sector Público, el cual es un directorio público de consulta, la información contenida en las bases de datos públicas consultadas, en tienen una periodicidad sujeta a plazo, estado procesal e impugnación ante la autoridad correspondiente, por lo que está sujeta a actualización por parte de la autoridad que la emite.
+                        p Con la búsqueda ingresada en el portal de Ojo a las Sanciones se realiza una consulta en las bases de datos de la página de internet 
+                            a(href="https://sanctionssearch.ofac.treas.gov/Details.aspx?id=54946" target="_blank" rel="noopener noreferrer") https://sanctionssearch.ofac.treas.gov/Details.aspx?id=54946
+                            |  y reflejamos en nuestro semáforo si existe un resultado similar o idéntico a su búsqueda en estas bases de datos.
+                        p El usuario reconoce y acepta que la información proporcionada puede estar sujeta a errores, omisiones o inexactitudes, y que en Ojo a las Sanciones no nos hacemos responsables por las consecuencias derivadas de la veracidad en dicha información.
+
+                    section.legal-section
+                        h2 3. Propiedad Intelectual
+                        p Todos los derechos de propiedad intelectual sobre la información contenida en nuestra página web, incluidos pero no limitados a textos, gráficos, logotipos, imágenes y software, son propiedad nuestra o de nuestros licenciantes.
+                        p El usuario se compromete a respetar todos los derechos de propiedad intelectual y a no copiar, modificar, distribuir, transmitir, exhibir, reproducir o explotar de ninguna manera la información contenida en nuestra plataforma sin nuestro consentimiento previo por escrito.
+
+                    section.legal-section
+                        h2 4. Limitación de Responsabilidad
+                        p En ningún caso seremos responsables ante el usuario o cualquier tercero por daños directos, indirectos, incidentales, especiales, ejemplares o consecuenciales que surjan del uso de la información proporcionada en nuestra página web.
+                        p No asumimos responsabilidad por cualquier pérdida o daño sufrido como resultado de virus informáticos u otros elementos dañinos que puedan infectar el equipo del usuario, software, datos u otros bienes como consecuencia del acceso, uso o navegación en nuestra plataforma.
+
+                    section.legal-section
+                        h2 5. Modificaciones
+                        p Nos reservamos el derecho de modificar, actualizar o eliminar este Aviso Legal en cualquier momento y sin previo aviso. Se recomienda al usuario revisar periódicamente este aviso para estar al tanto de cualquier cambio.
+                        p Al acceder y utilizar nuestra página web, el usuario acepta todos los términos y condiciones establecidos en este Aviso Legal. Si no está de acuerdo con alguno de estos términos, le rogamos que no utilice nuestra plataforma.
+
+                p.fecha-actualizacion Última actualización: 01/03/2024.
 
     +footer()

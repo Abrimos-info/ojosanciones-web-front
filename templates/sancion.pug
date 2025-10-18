@@ -41,7 +41,7 @@ mixin fuente_link(tipo,rfc)
         when "sat-efos"
             a(href="http://omawww.sat.gob.mx/cifras_sat/Paginas/datos/vinculo.html?page=ListCompleta69B.html?rfc="+rfc).actionButton ➡️ Ver fuente SAT-EFOS
         when "sfp"
-            a(href="https://directoriosancionados.apps.funcionpublica.gob.mx/SanFicTec/jsp/Ficha_Tecnica/SancionadosN.htm?rfc="+rfc).actionButton ➡️ Ver fuente SFP
+            a(href="https://directoriosancionados.buengobierno.gob.mx/SanFicTec/jsp/Ficha_Tecnica/SancionadosN.htm?rfc="+rfc).actionButton ➡️ Ver fuente Buen Gobierno
         when "ofac"
             a(href="https://sanctionssearch.ofac.treas.gov/?rfc="+rfc).actionButton ➡️ Ir a fuente OFAC
             
@@ -62,8 +62,9 @@ if (!item._source)
 
         div.itemContents
             // --- Nota as .tableHeader ---
-            div.tabHeader.disclaimer-highlight Los datos mostrados son de fuentes públicas y pueden contener errores. 
-                a(href="/aviso-legal") Aviso legal
+            div.tabHeader.disclaimer-highlight No garantizamos la exactitud, integridad o actualidad de la información contenida en nuestra página web, dicha información es recopilada de fuentes oficiales. 
+                span Última actualización: #{fechaFormateada(last_update)}. 
+                a(href="/aviso-legal") Consulta el aviso legal aquí. 
 
             div.fieldsetgroup.titulo
                 
